@@ -1,0 +1,7 @@
+This is the project euler, you find all the problems [[http://projecteuler.net/index.php%3Fsection%3Dproblems][here]].
+
+* TODO Scraping on the web page, analyzing the source code and recreating a table.
+
+| 1 | Add all the natural numbers below one thousand that are multiples of 3 or 5                           | [X] |
+| 2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [X] |
+|   |                                                                                                       |     |
