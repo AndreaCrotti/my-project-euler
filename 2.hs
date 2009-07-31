@@ -1,11 +1,15 @@
 module Main where
 
-fib 0 = 1
-fib 1 = 1
-fib n = fib(n-1) + fib(n-2)
+import List
 
 -- in general would be
-s = sum $ filter even $ takeWhile (< 40000) [fib n | n <- [0..]]
+-- s = sum $ filter even $ takeWhile (< 40000) [fib n | n <- [0..]]
+
+gen_fib :: Integer -> Integer -> [Integer]
+gen_fib x0 x1 =
+        
+
 
 main :: IO ()
 main = putStrLn $ show s
+

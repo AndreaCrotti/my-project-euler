@@ -1,7 +1,14 @@
 This is the project euler, you find all the problems [[http://projecteuler.net/index.php%3Fsection%3Dproblems][here]].
+* TODO In this folder there should be a project to auto set templates every time I add a new project
 
 * TODO Scraping on the web page, analyzing the source code and recreating a table.
 
-| 1 | Add all the natural numbers below one thousand that are multiples of 3 or 5                           | [X] |
-| 2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [X] |
-|   |                                                                                                       |     |
+ | ID | DESCRIPTION                                                                                           | PY | RB | C | HS | RESULT |
+ |----+-------------------------------------------------------------------------------------------------------+----+----+---+----+--------|
+ |  1 | Add all the natural numbers below one thousand that are multiples of 3 or 5                           | X  |    |   |    | 233168 |
+ |  2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | X  |    |   |    |        |
+ |  4 | Find largest palindrome made from the product of two 3-digit numbers                                  | X  |    |   |    | 698896 |
+ |  5 | smallest divisible by 1..20                                                                           | X  |    |   |    | 3724680960       |
+ |  9 | find only Pythagorean triplet for which $a + b + c = 1000$, where $a^2+b^2=c^2$                       |    |    |   |    |        |
+ | 14 |                                                                                                       |    |    |   |    |        |
+

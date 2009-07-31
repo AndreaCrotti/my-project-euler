@@ -1,21 +1,18 @@
 # Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.
 
-# need a dynamic programming approach
-
-def fib(n):
-    """
-    
-    Arguments:
-    - `n`:
-    """
-    if (n == 0 or n == 1):
-        return 1
-    else:
-        return fib(n-1) + fib(n-2)
+# need a dynamic programming approach, using only one two cells array
  
-print fib(10)
-        
-    
-    
-    
-    
+def sum_fib(n):
+    "put some doc"
+    tot = 0
+    tup = [1,1]
+    while True:
+        tup[0], tup[1] = sum(tup), tup[0]
+        if tup[0] > n:
+            return tot
+        if tup[0] % 2 == 0:
+            tot += tup[0]
+            
+print sum_fib(4000000)
+
+
