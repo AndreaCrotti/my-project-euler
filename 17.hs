@@ -7,9 +7,13 @@ import Char (digitToInt)
 data MyNum = H Int Int Int | Dec Int Int | Un Int
 
 instance Show MyNum where
-    show (H x y z) = (fromJust $ lookup x uns) ++ "hundred" ++ show (Dec y z)
-    show (Dec x y) = (fromJust $ lookup x decs)  ++  show (Un y)
+    show (H x y z) = (fromJust $ lookup x uns) ++ " hundred  " ++ show (Dec y z)
+    show (Dec x y)
+         | x == 1 = fromJust $ lookup y els
+         | otherwise =  (fromJust $ lookup x decs)  ++ "-" ++ show (Un y)
     show (Un x) = fromJust $ lookup x uns
+
+clean n = filter (\x -> elem x ['a'..'z']) (show $ fromInt n)
 
 fromInt n
         | length digits == 3 = H (digits !! 0) (digits !! 1) (digits !! 2)
@@ -19,7 +23,7 @@ fromInt n
     where
       digits = [ digitToInt x | x <- show n ]
 
-allNums = foldr (++) "" [ show $ fromInt x | x <- [1..999] ]
+allNums = foldr (++) "" [ clean x | x <- [1..999] ]
 
 len = length allNums + (length "onethousand")
 
@@ -35,10 +39,20 @@ uns =
      (8, "eight"),
      (9, "nine")]
 
+els = 
+    [(0, "ten"),
+     (1, "eleven"),
+     (2, "twelve"),
+     (3, "thirteen"),
+     (4, "fourteen"),
+     (5, "fifteen"),
+     (6, "sixteen"),
+     (7, "seventeen"),
+     (8, "eighteen"),
+     (9, "nineteen")]
 
 decs =
     [(0, ""),
-     (1, "ten"),
      (2, "twenty"),
      (3, "thirty"),
      (4, "forty"),
