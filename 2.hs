@@ -7,8 +7,6 @@ import List
 
 gen_fib :: Integer -> Integer -> [Integer]
 gen_fib x0 x1 =
-        
-
 
 main :: IO ()
 main = putStrLn $ show s
