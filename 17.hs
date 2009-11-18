@@ -7,7 +7,7 @@ import Char (digitToInt)
 data MyNum = H Int Int Int | Dec Int Int | Un Int
 
 instance Show MyNum where
-    show (H x y z) = (fromJust $ lookup x uns) ++ " hundred  " ++ show (Dec y z)
+    show (H x y z) = (fromJust $ lookup x uns) ++ " hundred and  " ++ show (Dec y z)
     show (Dec x y)
          | x == 1 = fromJust $ lookup y els
          | otherwise =  (fromJust $ lookup x decs)  ++ "-" ++ show (Un y)
@@ -23,6 +23,7 @@ fromInt n
     where
       digits = [ digitToInt x | x <- show n ]
 
+count n = length $  clean n
 allNums = foldr (++) "" [ clean x | x <- [1..999] ]
 
 len = length allNums + (length "onethousand")
