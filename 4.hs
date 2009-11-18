@@ -4,6 +4,7 @@ module Main where
 is_pal n = show n == reverse (show n)
 
 -- brute force, using commutative property of *
+-- triangular matrix
 gpal = filter is_pal [x * y | x <- [100..999], y <- [x..999]]
 main = do
   putStrLn $ show $ foldr1 max gpal

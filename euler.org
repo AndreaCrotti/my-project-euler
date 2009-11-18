@@ -8,7 +8,8 @@ This is the project euler, you find all the problems [[http://projecteuler.net/i
  |    | <30>                           |    |    |   |    |    |            |           |
  |  1 | Add all the natural numbers below one thousand that are multiples of 3 or 5 | X  |    |   |    |    |     233168 | Y         |
  |  2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | X  |    |   |    |    |            |           |
- |  4 | Find largest palindrome made from the product of two 3-digit numbers | X  |    |   |    |    |     698896 |           |
+ |  3 | What is the largest prime factor of the number 600851475143 ? |    |    |   |    | X  |            |           |
+ |  4 | Find largest palindrome made from the product of two 3-digit numbers | X  |    |   |    |    |     906609 | Y         |
  |  5 | smallest divisible by 1..20    | X  |    |   |    |    | 3724680960 |           |
  |  9 | find only Pythagorean triplet for which $a + b + c = 1000$, where $a^2+b^2=c^2$ |    |    |   |    |    |            |           |
  | 14 |                                |    |    |   |    |    |            |           |
