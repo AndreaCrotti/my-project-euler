@@ -32,3 +32,20 @@ def gen_dict(max_value):
                 cols[x] += 1
     return cols
 
+
+def sol2(max_value):
+    memo = dict() 
+    N = 1000*1000 
+    def len_of(x): 
+        if x in memo:
+            return memo[x] 
+        if x == 1:
+            return 1 
+        elif x % 2:
+            return 1 + len_of(x * 3 + 1) 
+        else:
+            return 1 + len_of(x / 2) 
+
+    for x in xrange(1, N):
+        memo[x] = len_of(x) 
+    print 'max chain for N:', N, 'is:', max(xrange(1, N),)
