@@ -2,17 +2,18 @@
 
 # defining some useful decorators for the problems
 
-import time, sys
+import time
 
-def cronometro(funzione):
-    def funzione_decorata(*args, **kwargs):
-        inizio = time.time()
-        # passing the same things got in input
-        valore_ritorno = funzione(*args, **kwargs)
-        print 'Esecuzione di %s in %.2f secondi' % (
-            funzione.func_name, time.time() - inizio)
-        return valore_ritorno
-    return funzione_decorata
+def timing(func):
+    "Decorator to time your functions"
+    def _timing(*args, **kwargs):
+        start = time.time()
+        ret = func(*args, **kwargs)
+        print "Execution of %s terminated in %.2f seconds"\
+            % (func.func_name, time.time() - start)
+        return ret
+    return _timing
+        
 
 def memoize(funzione):
     " Memoizing"
