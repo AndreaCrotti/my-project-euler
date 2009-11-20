@@ -9,25 +9,25 @@ This is the [[http://projecteuler.net/index.php%3Fsection%3Dproblems][project Eu
 
 * Problems
 
- | ID | DESCRIPTION                    | PY | RB | C | HS |       RESULT | SUBMITTED |
- |----+--------------------------------+----+----+---+----+--------------+-----------|
- |    | <30>                           |    |    |   |    |              |           |
- |  1 | Add all the natural numbers below one thousand that are multiples of 3 or 5 | [[file:prob_1.py][X]]  |    |   | [[file:prob_1.hs][X]]  |       233168 | Y         |
- |  2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [[file:prob_2.py][X]]  |    |   | [[file:prob_2.hs][X]]  |      4613732 | Y         |
- |  3 | What is the largest prime factor of the number 600851475143 ? |    |    |   | [[file:prob_3.hs][X]]  |         6857 | Y         |
- |  4 | Find largest palindrome made from the product of two 3-digit numbers | [[file:prob_4.py][X]]  |    |   | [[file:prob_4.hs][X]]  |       906609 | Y         |
- |  5 | smallest divisible by 1..20    | [[file:prob_5.py][X]]  |    |   | [[file:prob_5.hs][X]]  |    232792560 | Y         |
- |  6 | Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum |    |    |   | [[file:prob_6.hs][X]]  |     25164150 | Y         |
- |  7 | What is the 10001^{st} prime number |    |    |   | [[file:prob_7.hs][X]]  |       104743 | Y         |
- |  9 | find only Pythagorean triplet for which $a + b + c = 1000$, where $a^2+b^2=c^2$ | [[file:prob_9.py][X]]  |    |   | [[file:prob_9.hs][X]]  |     31875000 | Y         |
- | 13 | Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. |    |    |   | [[file:prob_13.hs][X]]  |   5537376230 | Y         |
- | 14 | Find the longest sequence using a starting number under one million. | [[file:prob_14.py][X]]  |    | [[file:prob_14.c][X]] | [[file:prob_14.hs][X]]  |       837799 | Y         |
- | 16 | What is the sum of the digits of the number 21000? |    |    |   | [[file:prob_16.hs][X]]  |         1366 | Y         |
- | 17 | If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used? |    |    |   | [[file:prob_17.hs][X]]  |              |           |
- | 20 | find sum of digits of 100!     |    |    |   | [[file:prob_20.hs][X]]  |          648 | Y         |
- |  8 | Find the greatest product of five consecutive digits in the 1000-digit number. |    |    |   | [[file:prob_8.hs][X]]  |              |           |
- | 10 | Calculate the sum of all the primes below two million. |    |    |   |    | 142913828922 | Y         |
-#+TBLFM: $3='(check_file (concat "prob_" $1 ".py"))::$5='(check_file (concat "prob_" $1 ".c"))::$6='(check_file (concat "prob_" $1 ".hs"))::@3$4='(check_file (concat "prob_" $1 ".rb"))
+ | ID | LINK | DESCRIPTION                    | PY | RB | C | HS |       RESULT | SUBMITTED |
+ |----+------+--------------------------------+----+----+---+----+--------------+-----------|
+ |    |      | <30>                           |    |    |   |    |              |           |
+ |  1 | [[http://projecteuler.net/index.php?section=problems&id=1][1]]    | Add all the natural numbers below one thousand that are multiples of 3 or 5 | [[file:prob_1.py][X]]  |    |   | [[file:prob_1.hs][X]]  |       233168 | Y         |
+ |  2 | [[http://projecteuler.net/index.php?section=problems&id=2][2]]    | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [[file:prob_2.py][X]]  |    |   | [[file:prob_2.hs][X]]  |      4613732 | Y         |
+ |  3 | [[http://projecteuler.net/index.php?section=problems&id=3][3]]    | What is the largest prime factor of the number 600851475143 ? |    |    |   | [[file:prob_3.hs][X]]  |         6857 | Y         |
+ |  4 | [[http://projecteuler.net/index.php?section=problems&id=4][4]]    | Find largest palindrome made from the product of two 3-digit numbers | [[file:prob_4.py][X]]  |    |   | [[file:prob_4.hs][X]]  |       906609 | Y         |
+ |  5 | [[http://projecteuler.net/index.php?section=problems&id=5][5]]    | smallest divisible by 1..20    | [[file:prob_5.py][X]]  |    |   | [[file:prob_5.hs][X]]  |    232792560 | Y         |
+ |  6 | [[http://projecteuler.net/index.php?section=problems&id=6][6]]    | Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum |    |    |   | [[file:prob_6.hs][X]]  |     25164150 | Y         |
+ |  7 | [[http://projecteuler.net/index.php?section=problems&id=7][7]]    | What is the 10001^{st} prime number |    |    |   | [[file:prob_7.hs][X]]  |       104743 | Y         |
+ |  9 | [[http://projecteuler.net/index.php?section=problems&id=9][9]]    | find only Pythagorean triplet for which $a + b + c = 1000$, where $a^2+b^2=c^2$ | [[file:prob_9.py][X]]  |    |   | [[file:prob_9.hs][X]]  |     31875000 | Y         |
+ | 13 | [[http://projecteuler.net/index.php?section=problems&id=13][13]]   | Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. |    |    |   | [[file:prob_13.hs][X]]  |   5537376230 | Y         |
+ | 14 | [[http://projecteuler.net/index.php?section=problems&id=14][14]]   | Find the longest sequence using a starting number under one million. | [[file:prob_14.py][X]]  |    | [[file:prob_14.c][X]] | [[file:prob_14.hs][X]]  |       837799 | Y         |
+ | 16 | [[http://projecteuler.net/index.php?section=problems&id=16][16]]   | What is the sum of the digits of the number 21000? |    |    |   | [[file:prob_16.hs][X]]  |         1366 | Y         |
+ | 17 | [[http://projecteuler.net/index.php?section=problems&id=17][17]]   | If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used? |    |    |   | [[file:prob_17.hs][X]]  |              |           |
+ | 20 | [[http://projecteuler.net/index.php?section=problems&id=20][20]]   | find sum of digits of 100!     |    |    |   | [[file:prob_20.hs][X]]  |          648 | Y         |
+ |  8 | [[http://projecteuler.net/index.php?section=problems&id=8][8]]    | Find the greatest product of five consecutive digits in the 1000-digit number. |    |    |   | [[file:prob_8.hs][X]]  |              |           |
+ | 10 | [[http://projecteuler.net/index.php?section=problems&id=10][10]]   | Calculate the sum of all the primes below two million. |    |    |   |    | 142913828922 | Y         |
+#+TBLFM: $2='(concat "\[\[http://projecteuler.net/index.php?section=problems&id=" $1 "\]\[" $1 "\]\]")::$4='(check_file (concat "prob_" $1 ".py"))::$6='(check_file (concat "prob_" $1 ".c"))::$7='(check_file (concat "prob_" $1 ".hs"))::@3$5='(check_file (concat "prob_" $1 ".rb"))
 # I can do even better taking the extension form the header of the table
 
 * Useful documentation
