@@ -29,7 +29,7 @@ This is the [[http://projecteuler.net/index.php%3Fsection%3Dproblems][project Eu
  | 20 | find sum of digits of 100!     | [[elisp:(find-file "prob_20.py")][_]]  | [[elisp:(find-file "prob_20.rb")][_]]  | [[elisp:(find-file "prob_20.c")][_]] | [[file:prob_20.hs][X]]  |          648 | Y         |
  | 22 |                                |    |    |   |    |    871198282 | Y         |
  | 48 |                                | [[elisp:(find-file "prob_48.py")][_]]  | [[elisp:(find-file "prob_48.rb")][_]]  | [[elisp:(find-file "prob_48.c")][_]] | [[file:prob_48.hs][X]]  |   9110846700 | Y         |
- | 12 | What is the value of the first triangle number to have over five hundred divisors? |    |    |   |    |              |           |
+ | 12 | What is the value of the first triangle number to have over five hundred divisors? |    |    |   |    |     76576500 | Y         |
 #+TBLFM: 
 # I can do even better taking the extension form the header of the table
 
