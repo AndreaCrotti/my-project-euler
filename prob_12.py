@@ -21,9 +21,9 @@ def triangle2():
         n += 1
 
 # The performances are almost identical for both generators
-def stupid(gen):
+def manydivs(gen, numdivs):
     for num in gen:
-        if divisors(num) > 500:
+        if divisors(num) > numdivs:
             print num
             break
 

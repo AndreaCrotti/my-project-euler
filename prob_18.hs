@@ -22,3 +22,5 @@ triangle =
 path = [ triangle !! x !! y | x <- [0..((length triangle) - 1)], y <- [0..((length $ triangle !! x) - 1)] ]
 
 -- we could use a sort of binary indexing?
+
+paths 0 =  triangle !! 0 !! 0

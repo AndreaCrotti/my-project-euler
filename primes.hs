@@ -1,4 +1,4 @@
-module Prime where
+module Primes (primes) where
 
 -- maybe better to generate a small subset of prime numbers and see if they divide n
 primes :: [Integer]
