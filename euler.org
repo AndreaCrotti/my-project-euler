@@ -9,6 +9,12 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 
 * TODO Insert automatic testing of results, with HUnit and more
 
+* Profiling
+** Haskell
+   - $ ghc -prof -auto-all -o Main Main.hs
+   - $ ./Main +RTS -p
+   Will generate the file Main.prof
+
 * Utils
   Exportation in haskell is done via "export" keyword.
   | uti          | lang |
@@ -20,44 +26,61 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 
  | ID | DESCRIPTION                    | PY | RB | C | HS |       RESULT | SUBMITTED |
  |----+--------------------------------+----+----+---+----+--------------+-----------|
- |    | <30>                           | [[elisp:(find-file "prob_.py")][_]]  | [[elisp:(find-file "prob_.rb")][_]]  | [[elisp:(find-file "prob_.c")][_]] | [[elisp:(find-file "prob_.hs")][_]]  |              |           |
+ |    | <30>                           | [[elisp:(find-file "temp_prob_.py")][_]]  | [[elisp:(find-file "temp_prob_.rb")][_]]  | [[elisp:(find-file "temp_prob_.c")][_]] | [[elisp:(find-file "temp_prob_.hs")][_]]  |              |           |
  |----+--------------------------------+----+----+---+----+--------------+-----------|
- |  1 | Add all the natural numbers below one thousand that are multiples of 3 or 5 | [[file:prob_1.py][X]]  | [[elisp:(find-file "prob_1.rb")][_]]  | [[elisp:(find-file "prob_1.c")][_]] | [[file:prob_1.hs][X]]  |       233168 | Y         |
- |  2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [[file:prob_2.py][X]]  | [[elisp:(find-file "prob_2.rb")][_]]  | [[elisp:(find-file "prob_2.c")][_]] | [[file:prob_2.hs][X]]  |      4613732 | Y         |
- |  3 | What is the largest prime factor of the number 600851475143 ? | [[elisp:(find-file "prob_3.py")][_]]  | [[elisp:(find-file "prob_3.rb")][_]]  | [[elisp:(find-file "prob_3.c")][_]] | [[file:prob_3.hs][X]]  |         6857 | Y         |
- |  4 | Find largest palindrome made from the product of two 3-digit numbers | [[file:prob_4.py][X]]  | [[elisp:(find-file "prob_4.rb")][_]]  | [[elisp:(find-file "prob_4.c")][_]] | [[file:prob_4.hs][X]]  |       906609 | Y         |
- |  5 | smallest divisible by 1..20    | [[file:prob_5.py][X]]  | [[elisp:(find-file "prob_5.rb")][_]]  | [[elisp:(find-file "prob_5.c")][_]] | [[file:prob_5.hs][X]]  |    232792560 | Y         |
- |  6 | Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum | [[elisp:(find-file "prob_6.py")][_]]  | [[elisp:(find-file "prob_6.rb")][_]]  | [[elisp:(find-file "prob_6.c")][_]] | [[file:prob_6.hs][X]]  |     25164150 | Y         |
- |  7 | What is the 10001^{st} prime number | [[elisp:(find-file "prob_7.py")][_]]  | [[elisp:(find-file "prob_7.rb")][_]]  | [[elisp:(find-file "prob_7.c")][_]] | [[file:prob_7.hs][X]]  |       104743 | Y         |
- |  8 | Find the greatest product of five consecutive digits in the 1000-digit number. | [[file:prob_8.py][X]]  | [[elisp:(find-file "prob_8.rb")][_]]  | [[elisp:(find-file "prob_8.c")][_]] | [[file:prob_8.hs][X]]  |        40824 | Y         |
- |  9 | find only Pythagorean triplet for which $a + b + c = 1000$, where $a^2+b^2=c^2$ | [[file:prob_9.py][X]]  | [[elisp:(find-file "prob_9.rb")][_]]  | [[elisp:(find-file "prob_9.c")][_]] | [[file:prob_9.hs][X]]  |     31875000 | Y         |
- | 10 | Calculate the sum of all the primes below two million. | [[elisp:(find-file "prob_10.py")][_]]  | [[elisp:(find-file "prob_10.rb")][_]]  | [[elisp:(find-file "prob_10.c")][_]] | [[file:prob_10.hs][X]]  | 142913828922 | Y         |
- | 12 | What is the value of the first triangle number to have over five hundred divisors? | [[file:prob_12.py][X]]  | [[file:prob_12.rb][X]]  | [[elisp:(find-file "prob_12.c")][_]] | [[file:prob_12.hs][X]]  |     76576500 | Y         |
- | 13 | Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. | [[elisp:(find-file "prob_13.py")][_]]  | [[elisp:(find-file "prob_13.rb")][_]]  | [[elisp:(find-file "prob_13.c")][_]] | [[file:prob_13.hs][X]]  |   5537376230 | Y         |
- | 14 | Find the longest sequence using a starting number under one million. | [[file:prob_14.py][X]]  | [[elisp:(find-file "prob_14.rb")][_]]  | [[file:prob_14.c][X]] | [[file:prob_14.hs][X]]  |       837799 | Y         |
- | 15 | (Just binomial 40 20)          | [[file:prob_15.py][X]]  | [[elisp:(find-file "prob_15.rb")][_]]  | [[elisp:(find-file "prob_15.c")][_]] | [[file:prob_15.hs][X]]  | 137846528820 | Y         |
- | 16 | What is the sum of the digits of the number 21000? | [[elisp:(find-file "prob_16.py")][_]]  | [[elisp:(find-file "prob_16.rb")][_]]  | [[elisp:(find-file "prob_16.c")][_]] | [[file:prob_16.hs][X]]  |         1366 | Y         |
- | 17 | If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used? | [[file:prob_17.py][X]]  | [[elisp:(find-file "prob_17.rb")][_]]  | [[elisp:(find-file "prob_17.c")][_]] | [[file:prob_17.hs][X]]  |              |           |
- | 19 | How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)? | [[elisp:(find-file "prob_19.py")][_]]  | [[elisp:(find-file "prob_19.rb")][_]]  | [[elisp:(find-file "prob_19.c")][_]] | [[file:prob_19.hs][X]]  |              |           |
- | 20 | find sum of digits of 100!     | [[elisp:(find-file "prob_20.py")][_]]  | [[elisp:(find-file "prob_20.rb")][_]]  | [[elisp:(find-file "prob_20.c")][_]] | [[file:prob_20.hs][X]]  |          648 | Y         |
- | 22 |                                | [[file:prob_22.py][X]]  | [[elisp:(find-file "prob_22.rb")][_]]  | [[elisp:(find-file "prob_22.c")][_]] | [[elisp:(find-file "prob_22.hs")][_]]  |    871198282 | Y         |
- | 48 |                                | [[elisp:(find-file "prob_48.py")][_]]  | [[elisp:(find-file "prob_48.rb")][_]]  | [[elisp:(find-file "prob_48.c")][_]] | [[file:prob_48.hs][X]]  |   9110846700 | Y         |
- | 11 | biggest product of 4 digits in matrix | [[file:prob_11.py][X]]  | [[elisp:(find-file "prob_11.rb")][_]]  | [[elisp:(find-file "prob_11.c")][_]] | [[file:prob_11.hs][X]]  |              |           |
- |    |                                | [[elisp:(find-file "prob_.py")][_]]  | [[elisp:(find-file "prob_.rb")][_]]  | [[elisp:(find-file "prob_.c")][_]] | [[elisp:(find-file "prob_.hs")][_]]  |              |           |
-#+TBLFM: $3='(check_file (concat "prob_" $1 "." (downcase @1)))::$4='(check_file (concat "prob_" $1 "." (downcase @1)))::$5='(check_file (concat "prob_" $1 "." (downcase @1)))::$6='(check_file (concat "prob_" $1 "." (downcase @1)))
+ |  1 | Add all the natural numbers below one thousand that are multiples of 3 or 5 | [[file:prob_1.py][X]]  | [[elisp:(find-file "temp_prob_1.rb")][_]]  | [[elisp:(find-file "temp_prob_1.c")][_]] | [[file:prob_1.hs][X]]  |       233168 | Y         |
+ |  2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [[file:prob_2.py][X]]  | [[elisp:(find-file "temp_prob_2.rb")][_]]  | [[elisp:(find-file "temp_prob_2.c")][_]] | [[file:prob_2.hs][X]]  |      4613732 | Y         |
+ |  3 | What is the largest prime factor of the number 600851475143 ? | [[elisp:(find-file "temp_prob_3.py")][_]]  | [[elisp:(find-file "temp_prob_3.rb")][_]]  | [[elisp:(find-file "temp_prob_3.c")][_]] | [[file:prob_3.hs][X]]  |         6857 | Y         |
+ |  4 | Find largest palindrome made from the product of two 3-digit numbers | [[file:prob_4.py][X]]  | [[elisp:(find-file "temp_prob_4.rb")][_]]  | [[elisp:(find-file "temp_prob_4.c")][_]] | [[file:prob_4.hs][X]]  |       906609 | Y         |
+ |  5 | smallest divisible by 1..20    | [[file:prob_5.py][X]]  | [[elisp:(find-file "temp_prob_5.rb")][_]]  | [[elisp:(find-file "temp_prob_5.c")][_]] | [[file:prob_5.hs][X]]  |    232792560 | Y         |
+ |  6 | Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum | [[elisp:(find-file "temp_prob_6.py")][_]]  | [[elisp:(find-file "temp_prob_6.rb")][_]]  | [[elisp:(find-file "temp_prob_6.c")][_]] | [[file:prob_6.hs][X]]  |     25164150 | Y         |
+ |  7 | What is the 10001^{st} prime number | [[elisp:(find-file "temp_prob_7.py")][_]]  | [[elisp:(find-file "temp_prob_7.rb")][_]]  | [[elisp:(find-file "temp_prob_7.c")][_]] | [[file:prob_7.hs][X]]  |       104743 | Y         |
+ |  8 | Find the greatest product of five consecutive digits in the 1000-digit number. | [[file:prob_8.py][X]]  | [[elisp:(find-file "temp_prob_8.rb")][_]]  | [[elisp:(find-file "temp_prob_8.c")][_]] | [[file:prob_8.hs][X]]  |        40824 | Y         |
+ |  9 | find only Pythagorean triplet for which $a + b + c = 1000$, where $a^2+b^2=c^2$ | [[file:prob_9.py][X]]  | [[elisp:(find-file "temp_prob_9.rb")][_]]  | [[elisp:(find-file "temp_prob_9.c")][_]] | [[file:prob_9.hs][X]]  |     31875000 | Y         |
+ | 10 | Calculate the sum of all the primes below two million. | [[elisp:(find-file "temp_prob_10.py")][_]]  | [[elisp:(find-file "temp_prob_10.rb")][_]]  | [[elisp:(find-file "temp_prob_10.c")][_]] | [[file:prob_10.hs][X]]  | 142913828922 | Y         |
+ | 12 | What is the value of the first triangle number to have over five hundred divisors? | [[file:prob_12.py][X]]  | [[file:prob_12.rb][X]]  | [[elisp:(find-file "temp_prob_12.c")][_]] | [[file:prob_12.hs][X]]  |     76576500 | Y         |
+ | 13 | Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. | [[elisp:(find-file "temp_prob_13.py")][_]]  | [[elisp:(find-file "temp_prob_13.rb")][_]]  | [[elisp:(find-file "temp_prob_13.c")][_]] | [[file:prob_13.hs][X]]  |   5537376230 | Y         |
+ | 14 | Find the longest sequence using a starting number under one million. | [[file:prob_14.py][X]]  | [[elisp:(find-file "temp_prob_14.rb")][_]]  | [[file:prob_14.c][X]] | [[file:prob_14.hs][X]]  |       837799 | Y         |
+ | 15 | (Just binomial 40 20)          | [[file:prob_15.py][X]]  | [[elisp:(find-file "temp_prob_15.rb")][_]]  | [[elisp:(find-file "temp_prob_15.c")][_]] | [[file:prob_15.hs][X]]  | 137846528820 | Y         |
+ | 16 | What is the sum of the digits of the number 21000? | [[elisp:(find-file "temp_prob_16.py")][_]]  | [[elisp:(find-file "temp_prob_16.rb")][_]]  | [[elisp:(find-file "temp_prob_16.c")][_]] | [[file:prob_16.hs][X]]  |         1366 | Y         |
+ | 17 | If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used? | [[file:prob_17.py][X]]  | [[elisp:(find-file "temp_prob_17.rb")][_]]  | [[elisp:(find-file "temp_prob_17.c")][_]] | [[file:prob_17.hs][X]]  |              |           |
+ | 19 | How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)? | [[elisp:(find-file "temp_prob_19.py")][_]]  | [[elisp:(find-file "temp_prob_19.rb")][_]]  | [[elisp:(find-file "temp_prob_19.c")][_]] | [[file:prob_19.hs][X]]  |              |           |
+ | 20 | find sum of digits of 100!     | [[file:temp_prob_20.py][?]]  | [[elisp:(find-file "temp_prob_20.rb")][_]]  | [[elisp:(find-file "temp_prob_20.c")][_]] | [[file:prob_20.hs][X]]  |          648 | Y         |
+ | 22 |                                | [[file:prob_22.py][X]]  | [[elisp:(find-file "temp_prob_22.rb")][_]]  | [[elisp:(find-file "temp_prob_22.c")][_]] | [[elisp:(find-file "temp_prob_22.hs")][_]]  |    871198282 | Y         |
+ | 48 |                                | [[elisp:(find-file "temp_prob_48.py")][_]]  | [[elisp:(find-file "temp_prob_48.rb")][_]]  | [[elisp:(find-file "temp_prob_48.c")][_]] | [[file:prob_48.hs][X]]  |   9110846700 | Y         |
+ | 11 | biggest product of 4 digits in matrix | [[file:prob_11.py][X]]  | [[elisp:(find-file "temp_prob_11.rb")][_]]  | [[elisp:(find-file "temp_prob_11.c")][_]] | [[file:prob_11.hs][X]]  |              |           |
+ |    |                                | [[elisp:(find-file "temp_prob_.py")][_]]  | [[elisp:(find-file "temp_prob_.rb")][_]]  | [[elisp:(find-file "temp_prob_.c")][_]] | [[elisp:(find-file "temp_prob_.hs")][_]]  |              |           |
+#+TBLFM: $3='(check-problem $1 @1)::$4='(check-problem $1 @1)::$5='(check-problem $1 @1)::$6='(check-problem $1 @1)
 # I can do even better taking the extension form the header of the table
 
 * Functions
   
 #+BEGIN_SRC emacs-lisp
-  (defun check_file (fname)
-    (interactive)
-    (if
-        (file-exists-p fname)
-        (concat "[[file:" fname "][X]]")
-      ;; Otherwise create a link for a new file
-      (concat "[[elisp:(find-file \"" fname "\")][_]]"))
-    )
+(defun check-problem (id ext)
+  (interactive)
+  (setq ext (downcase ext))
+  (cond
+   ((file-exists-p (make-name id ext))
+    (concat "[[file:" (make-name id ext) "][X]]"))
+   ((file-exists-p (temp-name id ext))
+    (concat "[[file:" (temp-name id ext) "][?]]"))
+   (t
+    ;; Otherwise create a link for a new file
+    (concat "[[elisp:(find-file \"" (temp-name id ext) "\")][_]]"))))
+
+(defun make-name (id ext)
+  (concat "prob_" id "." ext))
+
+(defun temp-name (id ext)
+  (concat "temp_" (make-name id ext)))
+
+(defun done ()
+  (interactive)
+  (if
+      (string-match "temp_prob" buffer-file-name)
+      (rename-file buffer-file-name (nth 1 (split-string buffer-file-name "temp_")))
+      ;; Also kill the buffer and visit the new one in the end
+    (message "not in a temporary euler file")))
 #+END_SRC
 
 * Useful documentation
