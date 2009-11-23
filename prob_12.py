@@ -1,10 +1,7 @@
 #!/usr/bin/env/python
 
 from math import sqrt, ceil
-
-def divisors(n):
-    divs = filter(lambda x: n % x == 0, xrange(1, int(ceil(sqrt(n)))))
-    return (len(divs) * 2)
+from utils import divisors
 
 def triangle():
     i, n = 1, 1
@@ -23,7 +20,7 @@ def triangle2():
 # The performances are almost identical for both generators
 def manydivs(gen, numdivs):
     for num in gen:
-        if divisors(num) > numdivs:
+        if (len(divisors(num)) * 2) > numdivs:
             print num
             break
 
