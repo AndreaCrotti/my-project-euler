@@ -3,4 +3,5 @@
 
 # OR is short circuiting, putting n % 3 before n % 5 can already
 # greatly reduce the number of calls
-print sum([n for n in xrange(1000) if (n % 3 == 0 or n % 5 == 0)])    
+# Using directly a generator instead of list comprehension is always a good thing
+print sum(n for n in xrange(1000) if (n % 3 == 0 or n % 5 == 0))    
