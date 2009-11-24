@@ -15,7 +15,7 @@ abundants = [ x for x in xrange(BIG) if perfection(x) == 1 ]
 # now we get all possible combinations and sum them
 
 # generating a set of unique values automatically
-sum_combs = set([ sum(comb) for comb in combinations(abundants, 2) ]).union([x*2 for x in abundants])
+sum_combs = set([ sum(comb) for comb in combinations(abundants, 2) ]).union((x*2 for x in abundants))
 
 non_comb = set(xrange(BIG)).difference(sum_combs)
 print sum(non_comb)
