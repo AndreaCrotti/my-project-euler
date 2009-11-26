@@ -29,12 +29,10 @@ def memoize(funzione):
     return funzione_decorata
 
 def divisors(n):
-    "computes the list of divisors of n"
-    if n == 1:
-        # special case because of xrange(1,1)
-        return [1]
-    else:
-        half = filter(lambda x: n % x == 0, xrange(1, int(ceil(sqrt(n)))))
-        return (half + [ n / x for x in reversed(half)])
-
-
+    """computes the list of divisors of n
+    >>> list(divisors(16))
+    [1, 2, 4, 8]
+    >>> list(divisors(20))
+    [1, 2, 4, 5, 10]
+    """
+    return (x for x in xrange(1, n) if not (n % x))

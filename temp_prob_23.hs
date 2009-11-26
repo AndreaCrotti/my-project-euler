@@ -1,4 +1,4 @@
--- module Abundant where
+module Abundant where
 
 -- divisors :: Integer -> [Integer]
 
@@ -6,8 +6,10 @@
 -- abundant n = (sum $ divisors n) > n
 
 import Data.Array 
+import Utils (totient)
+
 n = 28124
-abundant n = eulerTotient n - n > n
+abundant n = totient n - n > n
 abunds_array = listArray (1,n) $ map abundant [1..n]
 abunds = filter (abunds_array !) [1..n]
  
