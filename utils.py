@@ -30,9 +30,14 @@ def memoize(funzione):
 
 def divisors(n):
     """computes the list of divisors of n
+    """
+    return (x for x in xrange(1, n) if not (n % x))
+
+if __name__ == '__main__':
+    """
     >>> list(divisors(16))
     [1, 2, 4, 8]
     >>> list(divisors(20))
     [1, 2, 4, 5, 10]
     """
-    return (x for x in xrange(1, n) if not (n % x))
+    pass
