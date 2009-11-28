@@ -33,6 +33,17 @@ def divisors(n):
     """
     return (x for x in xrange(1, n) if not (n % x))
 
+def primes():
+    """Prime number generator"""
+    p = 2
+    while True:
+        if is_prime(p):
+            yield p
+        p += 1
+
+def is_prime(n):
+    return len(list(divisors(n))) == 1
+
 if __name__ == '__main__':
     """
     >>> list(divisors(16))

@@ -17,10 +17,6 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 
 * Utils
   Exportation in haskell is done via "export" keyword.
-  | uti          | lang |
-  |--------------+------|
-  | [[file:primes.hs][prime number]] | HS   |
-  |              |      |
 
 * Problems
 
@@ -53,7 +49,7 @@ Some auxiliary functions are defined as utilities in files haskell or python.
  |  24 | What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9? | [[file:prob_24/prob_24.py][X]]  | [[elisp:(find-file "temp/prob_24.hs")][_]]  | [[elisp:(find-file "temp/prob_24.rb")][_]]  | [[elisp:(find-file "temp/prob_24.c")][_]] | [[elisp:(find-file "temp/prob_24.cpp")][_]]   | [[file:prob_24/prob_24.nb][X]]  |   2783915460 | Y         |
  |  48 |                                | [[elisp:(find-file "temp/prob_48.py")][_]]  | [[file:prob_48/prob_48.hs][X]]  | [[elisp:(find-file "temp/prob_48.rb")][_]]  | [[elisp:(find-file "temp/prob_48.c")][_]] | [[elisp:(find-file "temp/prob_48.cpp")][_]]   | [[elisp:(find-file "temp/prob_48.nb")][_]]  |   9110846700 | Y         |
  |  36 | Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2. | [[elisp:(find-file "temp/prob_36.py")][_]]  | [[file:prob_36/prob_36.hs][X]]  | [[elisp:(find-file "temp/prob_36.rb")][_]]  | [[elisp:(find-file "temp/prob_36.c")][_]] | [[elisp:(find-file "temp/prob_36.cpp")][_]]   | [[elisp:(find-file "temp/prob_36.nb")][_]]  |       872187 | Y         |
- |  37 | Find the sum of the only eleven primes that are both truncatable from left to right and right to left | [[elisp:(find-file "temp/prob_37.py")][_]]  | [[elisp:(find-file "temp/prob_37.hs")][_]]  | [[elisp:(find-file "temp/prob_37.rb")][_]]  | [[elisp:(find-file "temp/prob_37.c")][_]] | [[elisp:(find-file "temp/prob_37.cpp")][_]]   | [[elisp:(find-file "temp/prob_37.nb")][_]]  |              | N         |
+ |  37 | Find the sum of the only eleven primes that are both truncatable from left to right and right to left | [[file:temp/prob_37.py][?]]  | [[elisp:(find-file "temp/prob_37.hs")][_]]  | [[elisp:(find-file "temp/prob_37.rb")][_]]  | [[elisp:(find-file "temp/prob_37.c")][_]] | [[elisp:(find-file "temp/prob_37.cpp")][_]]   | [[elisp:(find-file "temp/prob_37.nb")][_]]  |              | N         |
  |-----+--------------------------------+----+----+----+---+-----+----+--------------+-----------|
  | TOT |                                | [[elisp:(find-file "temp/prob_TOT.py")][_]]  | [[elisp:(find-file "temp/prob_TOT.hs")][_]]  | [[elisp:(find-file "temp/prob_TOT.rb")][_]]  | [[elisp:(find-file "temp/prob_TOT.c")][_]] | [[elisp:(find-file "temp/prob_TOT.cpp")][_]]   | [[elisp:(find-file "temp/prob_TOT.nb")][_]]  |              | N         |
 
@@ -63,6 +59,10 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 * Functions
   
 #+BEGIN_SRC emacs-lisp
+(defvar temp-dir "temp/")
+(defvar solved-dir "prob_%s/")
+(defvar prob-file "prob_%s.%s")
+
 (defun check-problem (id ext)
   (interactive)
   (setq ext (downcase ext))
@@ -75,9 +75,12 @@ Some auxiliary functions are defined as utilities in files haskell or python.
     ;; Otherwise create a link for a new file
     (concat "[[elisp:(find-file \"" (temp-problem id ext) "\")][_]]"))))
 
-(defvar temp-dir "temp/")
-(defvar solved-dir "prob_%s/")
-(defvar prob-file "prob_%s.%s")
+(defun create-new (msg fname)
+  "creates a new file inserting the text as comment"
+  (progn 
+    (find-file fname)
+    ;; TODO: adding automatically commenting
+    (insert msg)))
 
 (defun temp-problem (id ext)
   (concat temp-dir
@@ -94,7 +97,6 @@ Some auxiliary functions are defined as utilities in files haskell or python.
   (if (not buffer-file-name)
       (message "your file is not saved, save it before")
     (let ((newfile (concat temp-dir (file-name-nondirectory buffer-file-name))))
-      ;; Some checks of integrity should be done
       (if
           (yes-or-no-p "sure you solved the problem?")
           ((rename-file buffer-file-name newfile)
