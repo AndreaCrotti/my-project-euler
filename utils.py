@@ -3,7 +3,6 @@
 # defining some useful decorators for the problems
 
 import time
-from math import sqrt, ceil
 
 def timing(func):
     "Decorator to time your functions"
@@ -15,22 +14,26 @@ def timing(func):
         return ret
     return _timing
         
-
 def memoize(funzione):
     " Memoizing"
     cache = {}
-    def funzione_decorata(*args):
+    def _memoize(*args):
         try:
             return cache[args]
         except KeyError:
             ret = funzione(*args)
             cache[args] = ret
             return ret
-    return funzione_decorata
+    return _memoize
+
+def fib_numbers(a = 1, b = 1):
+    "Returns the generator of all possible fibonacci numbers"
+    while True:
+        yield b
+        a, b = b, a + b
 
 def divisors(n):
-    """computes the list of divisors of n
-    """
+    "Returns the generator of all the possible divisors of n"
     return (x for x in xrange(1, n) if not (n % x))
 
 def primes():
