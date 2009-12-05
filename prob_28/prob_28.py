@@ -16,33 +16,29 @@ def next_pos(pos, direction):
 def gen_seq(init, dim):
     "Generates a sequence of repeating numbers"
     for i in count(init):
-        for j in range(dim):
+        for j in xrange(dim):
             yield i
 
 movement = izip(gen_seq(1, 2), directions)
 
 def gen_matrix(dim):
-    matrix = [[-1]*dim for x in range(dim)]
+    matrix = [[-1]*dim for x in xrange(dim)]
 
     # starting point of the spiral, coordinates are given in tuples (x, y)
     cx, cy = [len(matrix) / 2] * 2
     pos = (cx, cy)
     value = 1
-    done = False
     for c, mov in movement:
-        if done:
-            break
         for x in xrange(c):
             try:
                 matrix[pos[0]][pos[1]] = value
             except IndexError:
                 print "reaching the end of the matrix"
-                done = True
-                break
+                # this must always happen
+                return matrix
             value += 1
             pos = next_pos(pos, mov)
         # the direction is changed only here
-    return matrix
 
 def diag_sum(mat):
     right = sum(mat[x][x] for x in xrange(len(mat)))
@@ -50,4 +46,4 @@ def diag_sum(mat):
     return left + right
 
 # -1 is to remove the 1 in the middle that would be counted twice (even matrix)
-print diag_sum(gen_matrix(dimension))
+print diag_sum(gen_matrix(dimension)) -1

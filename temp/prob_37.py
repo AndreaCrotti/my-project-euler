@@ -6,16 +6,28 @@
 ########################################################
 
 # we can stop when we reach 11
-
-import sys
-sys.path.append("..")
-
-from utils import primes, is_prime
+import utils
 
 nPrimes = 0
 
 def is_truncatable(n):
-    reduce(and, )
+    if n < 10:
+        return False
+    s = str(n)
+    r = [ s[i:] for i in range(1, len(s)) ]
+    l = [ s[:i] for i in range(1, len(s)) ]
+    return all(map(utils.is_prime, map(int, [s] + r + l)))
 
-while nPrimes < 11:
-    if 
+@utils.timing
+def prob_37():
+    s, i = 0, 0
+    p = utils.primes()
+    while i < 11:
+        n = p.next()
+        if is_truncatable(n):
+            print "found ", n
+            i += 1
+            s += n
+    print s
+
+prob_37()
