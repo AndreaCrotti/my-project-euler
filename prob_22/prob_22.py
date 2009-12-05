@@ -1,6 +1,5 @@
 #!/usr/bin/env/python
 from itertools import imap
-
 # Very subtle use of EVAL ;)
 # x = eval( '[' + open( 'names_prob22.txt' ).readlines()[ 0 ] + ']' )
 

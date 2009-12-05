@@ -1,4 +1,4 @@
-module Utils (primes, totient, upToSqrt, divisors) where
+module Utils (primes, totient, upToSqrt, divisors, fib) where
 
 import Data.List (union, sort, nub)
 
@@ -8,6 +8,11 @@ primes = 2:filter isPrime [3,5..]
     where
       isPrime n   = all (not . divides n) $ takeWhile (\p -> p * p <= n) primes
       divides n p = n `mod` p == 0
+
+fib :: Int -> Integer
+fib n = fibs !! n
+    where
+      fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
 
 totient 1 = 1
 totient a = length $ filter (coprime a) [1..a-1]
