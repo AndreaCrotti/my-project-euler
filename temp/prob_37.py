@@ -22,7 +22,7 @@ def is_truncatable(n):
 def prob_37():
     s, i = 0, 0
     p = utils.primes()
-    while i < 11:
+    while i < 10:
         n = p.next()
         if is_truncatable(n):
             print "found ", n

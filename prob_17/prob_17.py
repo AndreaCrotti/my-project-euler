@@ -16,7 +16,7 @@ def saynum(n):
 
     def say(digits):
         if len(digits) == 3:
-            if digits[1] != 0:
+            if digits[1] != 0 or digits[2] != 0:
                 a = "and"
             else:
                 a = ""
@@ -31,4 +31,4 @@ def saynum(n):
 
     return say([ int(x) for x in str(n) ])
                     
-print sum([len(saynum(x)) for x in range(1,1000)])
+print (sum([len(saynum(x)) for x in range(1,1000)]) + len("onethousand"))
