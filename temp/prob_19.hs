@@ -40,3 +40,16 @@ instance Enum Data where
         (sum $ concat [ year n | n <- [1900..y] ]) +
         (sum [ (year y) !! x | x <- [0..(m - 2)]]) +
         d
+
+problem_19 =  length . filter (== sunday) . drop 12 . take 1212 $ since1900
+since1900 = scanl nextMonth monday . concat $
+              replicate 4 nonLeap2 ++ cycle (leap2 : replicate 3 nonLeap2)
+ 
+nonLeap2 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+ 
+leap2 = 31 : 29 : drop 2 nonLeap2
+ 
+nextMonth x y = (x + y) `mod` 7
+ 
+sunday = 0
+monday = 1
