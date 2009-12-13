@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 from itertools import chain
-from operator import mul
+#from operator import mul
 
 def irr_dec():
     i = 1
