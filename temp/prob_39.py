@@ -12,7 +12,7 @@ def is_pytagorean(a, b, c):
 
 
 def prob_39():
-    combs = combinations(xrange(1,1000), 2)
+    combs = combinations(xrange(1, 1000), 2)
     dic = {}
     maxcouple = False
     for a, b in combs:
@@ -23,6 +23,7 @@ def prob_39():
             # TODO: use setdefault instead
             if dic.has_key(s):
                 dic[s] += 1
+                # FIXME: this assignment is not correct
                 if not(maxcouple) or (dic[s] > maxcouple[1]):
                     maxcouple = ((a, b, c), dic[s])
             else:
