@@ -20,6 +20,3 @@ def prob_41():
         maxnum = inner(map(str, xrange(dim, 0, -1)))
         if maxnum:
             return maxnum
-
-if __name__ == '__main__':
-    prob_41()
