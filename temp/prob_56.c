@@ -21,14 +21,17 @@ int main(int argc, char *argv[])
 
 // Takes the digit of a number
 void getdigits(int n, int *res) {
-  int i, j, len;
+  int i, j, len, dig;
   len = ((int) floor(log10(n))) + 1;
-  printf("len of %d is %d allocating memory now", n, len);
+  printf("len of %d is %d allocating memory\n", n, len);
   res = malloc(sizeof(int) * len);
 
   for (i = len-1; i > 0; i--) {
     j = pow(10, i);
-    res[i] = (int) floor(n / j);
+    dig = (int) floor(n / j);
+    // we get the right digits, must be a problem in indexing the array
+    printf("getting the digit = %d\n", dig);
+    res[i] = dig;
     n = n % j;
     printf("now we got n = %d\n", n);
   }
