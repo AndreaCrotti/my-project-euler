@@ -8,7 +8,7 @@ def prob_38(dim = 10):
         #print "checking ", n
         if is_constructable(n):
             return n
-                
+
 def is_constructable(n):
     s = str(n)
     for k in xrange(1, len(s) / 2 -1):
@@ -34,7 +34,12 @@ def is_constructable(n):
                 idx += len(mul)
             else:
                 break
-    
+
+def is_constructable_num(n, dim):
+    "numerical way"
+    for l in xrange(dim, dim / 2, -1):
+        num = n / (10 ** (l - 1))
+        # check if we are able to construct the number
 
 # other slower ways are
 #########################################################################
