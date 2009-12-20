@@ -2,6 +2,7 @@
 
 #import numpy
 from itertools import chain
+from operator import mul
 
 mat = ([[8,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,8],
         [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,04,56,62,00],
@@ -25,6 +26,15 @@ mat = ([[8,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,8],
         [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48]])
 
 # Using numpy for better performances
+def max_prod_in_line(line, dim = 4):
+    "Get maximum product from a line, returning 0 when the list is too short"
+    max_prod = 0
+    for i in range(len(line) - (dim - 1)):
+        prod = reduce(mul, line[i:i + dim])
+        print "for index %d getting %d" % (i, prod)
+        if prod > max_prod:
+            max_prod = prod
+    return max_prod
 
 def subsets(line, dim):
     """Gets the subsets of dimension dim from a list
@@ -48,6 +58,9 @@ def columns(matrix):
         cols = chain(cols, [column(x)])
     return cols
 
+def diagonals(matrix):
+    diags = ()
+    
 
 def diagonals(matrix, dim):
     """ Returning a generator for all the possible with

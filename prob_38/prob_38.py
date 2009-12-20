@@ -36,9 +36,14 @@ def is_constructable(n):
                 break
 
 def is_constructable_num(n, dim):
-    "numerical way"
+    "numerical way, needs maybe also logarithms in this case"
     for l in xrange(dim, dim / 2, -1):
+        divis = 10 ** (l - 1)
         num = n / (10 ** (l - 1))
+        newn = n
+        for idx in count(2):
+            mul = num * idx * divis
+            # find with the logarithm the right value
         # check if we are able to construct the number
 
 # other slower ways are
