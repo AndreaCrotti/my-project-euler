@@ -1,11 +1,9 @@
 from itertools import permutations, count
 
-# this appears the fastest way to do it
-dim = 10
-pandigs = permutations(map(str, xrange(dim-1, 0, -1)))
-pan_numbers = (''.join(x) for x in pandigs)
-
-def prob_38():
+def prob_38(dim = 10):
+    pandigs = permutations(map(str, xrange(dim-1, 0, -1)))
+    # this appears the fastest way to do it
+    pan_numbers = (''.join(x) for x in pandigs)
     for n in pan_numbers:
         #print "checking ", n
         if is_constructable(n):

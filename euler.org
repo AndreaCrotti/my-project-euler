@@ -1,6 +1,8 @@
 #+OPTIONS: todo:nil author:t toc:nil
 #+AUTHOR: Andrea Crotti
-#+STARTUP: align showall
+#+STARTUP: align
+# Time-stamp: <20-12-2009, 11:37>
+
 This is the [[http://projecteuler.net/index.php%3Fsection%3Dproblems][project Euler problems page]]
 Some auxiliary functions are defined as utilities in files haskell or python.
 
