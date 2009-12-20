@@ -60,7 +60,7 @@ def columns(matrix):
 
 def diagonals(matrix):
     diags = ()
-    
+    pass
 
 def diagonals(matrix, dim):
     """ Returning a generator for all the possible with

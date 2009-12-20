@@ -35,12 +35,19 @@ def is_constructable(n):
             else:
                 break
 
-def is_constructable_num(n, dim):
+def is_constructable_num(n):
     "numerical way, needs maybe also logarithms in this case"
+    from math import log, floor
+
+    get_dim = lambda x: int(floor(log(x, 10)))
+    dim = get_dim(n)
     for l in xrange(dim, dim / 2, -1):
-        divis = 10 ** (l - 1)
-        num = n / (10 ** (l - 1))
-        newn = n
+        divis = 10 ** l
+        num = n / divis
+        # get the new number with the % operator
+        #newnum = 
+        num_len = get_dim(num)
+        
         for idx in count(2):
             mul = num * idx * divis
             # find with the logarithm the right value
