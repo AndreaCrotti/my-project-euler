@@ -1,7 +1,7 @@
 #!/usr/bin/env/python
 
 #import numpy
-from itertools import chain
+from itertools import chain, izip
 from operator import mul
 
 mat = ([[8,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,8],
@@ -27,11 +27,17 @@ mat = ([[8,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,8],
 
 # Using numpy for better performances
 def max_prod_in_line(line, dim = 4):
-    "Get maximum product from a line, returning 0 when the list is too short"
+    """
+    Get maximum product from a line, returning 0 when the list is too short
+    >>> max_prod_in_line([2,4,4,3],2)
+    16
+    """
+    if dim > len(line):
+        raise Exception("list too short")
     max_prod = 0
     for i in range(len(line) - (dim - 1)):
         prod = reduce(mul, line[i:i + dim])
-        print "for index %d getting %d" % (i, prod)
+        #print "for index %d getting %d" % (i, prod)
         if prod > max_prod:
             max_prod = prod
     return max_prod
@@ -41,7 +47,7 @@ def subsets(line, dim):
     If the dimension is greater than line dimension than just returns an "empty" generator
 
     >>> list(subsets([1,2,3], 2))
-    [[1, 2], [2, 2]]
+    [[1, 2], [2, 3]]
     """
     
     return (line[x:x + dim] for x in xrange(len(line) - dim + 1))
@@ -58,41 +64,49 @@ def columns(matrix):
         cols = chain(cols, [column(x)])
     return cols
 
-def diagonals(matrix):
-    diags = ()
-    pass
-
 def diagonals(matrix, dim):
-    """ Returning a generator for all the possible with
-    length at least dim"""
-    # first line
+    diags = ()
     maxy = len(matrix) - dim + 1
-    print "maxy = %d" % maxy
-    def pos(x, y):
-        while y != maxy: 
-            yield x, y
-            x += 1
-            y += 1
-
-    def neg(x, y):
-        while x >= 0 and y != maxy:
-            yield x, y
-            x -= 1
-            y += 1
+    def pos_diag(x, y):
+        return izip(xrange(x, maxy - x), xrange(y, maxy))
     
-    print "here"
-    for coord in ((0, x) for x in xrange(maxy)):
-        print "positive diagonals"
-        print list((x,y) for x, y in pos(*coord))
-        print "negative diagonals"
-        print list((x,y) for x, y in neg(*coord))
+    def neg_diag(x, y):
+        return izip(xrange(x, 0, -1), xrange(y, maxy))
+    
+    return chain(pos_diag(0,0), neg_diag(len(matrix)-1, len(matrix)-1))
+    
+    # now only pass the diagonals which can surely be greater than DIM
 
-    print "column"
-    # 1 to avoid managing (0, 0) twice
-    for coord in ((x, 0) for x in xrange(1, maxy)):
-        print "positive diagonals"
-        print list((x,y) for x, y in pos(*coord))
-        print "negative diagonals"
-        print list((x,y) for x, y in neg(*coord))
-        
-            
+# def diagonals(matrix, dim):
+#     """ Returning a generator for all the possible with
+#     length at least dim"""
+#     # first line
+#     maxy = len(matrix) - dim + 1
+#     print "maxy = %d" % maxy
+#     def pos(x1, y1):
+#         (x, y
+#         while y != maxy: 
+#             yield x, y
+#             x += 1
+#             y += 1
+
+#     def neg(x, y):
+#         while x >= 0 and y != maxy:
+#             yield x, y
+#             x -= 1
+#             y += 1
+    
+#     print "here"
+#     for coord in ((0, x) for x in xrange(maxy)):
+#         print "positive diagonals"
+#         print list((x,y) for x, y in pos(*coord))
+#         print "negative diagonals"
+#         print list((x,y) for x, y in neg(*coord))
+
+#     print "column"
+#     # 1 to avoid managing (0, 0) twice
+#     for coord in ((x, 0) for x in xrange(1, maxy)):
+#         print "positive diagonals"
+#         print list((x,y) for x, y in pos(*coord))
+#         print "negative diagonals"
+#         print list((x,y) for x, y in neg(*coord))

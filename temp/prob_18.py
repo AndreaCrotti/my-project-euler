@@ -1,5 +1,3 @@
-from random import randrange
-
 triangle = [[75],
             [95, 64],
             [17, 47, 82],
@@ -20,16 +18,10 @@ small = [[1],
          [2, 3],
          [4, 5, 6]]
 
-def find_routes(dim):
-    "Returns an iterator of all possible routes"
-    first = [[(0, 0)]]
-    for x in xrange(1, dim):
-        j = dim + 1
-        for f in first:
-            # generates all the couples
-
-
-def gen_triangle(dim):
-    s = [[] * dim]
-    for x in xrange(dim):
-        
+# should use a generator instead
+def gen_paths(dim):
+    if dim == 0:
+        return [(0, 0)]
+    line = [ (dim, x) for x in xrange(dim + 1)]
+    return [ [el] + gen_paths(dim -1) for el in line ]
+    

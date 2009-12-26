@@ -1,7 +1,7 @@
 #+OPTIONS: todo:nil author:t toc:nil
 #+AUTHOR: Andrea Crotti
 #+STARTUP: align showall
-# Time-stamp: <20-12-2009, 20:16>
+# Time-stamp: <26-12-2009, 22:54>
 
 This is the [[http://projecteuler.net/index.php%3Fsection%3Dproblems][project Euler problems page]]
 Some auxiliary functions are defined as utilities in files haskell or python.
@@ -76,7 +76,7 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 
 * Functions
   
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defvar temp-dir "temp/")
 (defvar solved-dir "prob_%s/")
 (defvar prob-file "prob_%s.%s")
@@ -130,7 +130,7 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 
 (defun sans-extension (fname)
   (substring fname 0 (string-match "\\." fname)))
-#+END_SRC
+#+end_src
 
 * Useful documentation
 ** Haskell
