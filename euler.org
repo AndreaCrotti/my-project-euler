@@ -1,7 +1,7 @@
 #+OPTIONS: todo:nil author:t toc:nil
 #+AUTHOR: Andrea Crotti
 #+STARTUP: align showall
-# Time-stamp: <06-01-2010, 18:22>
+# Time-stamp: <07-01-2010, 10:29>
 
 This is the [[http://projecteuler.net/index.php%3Fsection%3Dproblems][project Euler problems page]]
 Some auxiliary functions are defined as utilities in files haskell or python.
@@ -69,7 +69,8 @@ Some auxiliary functions are defined as utilities in files haskell or python.
  |  52 | Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits. | [[file:prob_52/prob_52.py][X]]  | [[file:prob_52/prob_52.hs][X]]  | [[elisp:(find-file "temp/prob_52.rb")][_]]  | [[elisp:(find-file "temp/prob_52.c")][_]] | [[elisp:(find-file "temp/prob_52.cpp")][_]]   | [[elisp:(find-file "temp/prob_52.nb")][_]]  |       142857 | Y         |
  |  56 | Considering natural numbers of the form, ab, where a, b  100, what is the maximum digital sum? | [[file:prob_56/prob_56.py][X]]  | [[elisp:(find-file "temp/prob_56.hs")][_]]  | [[elisp:(find-file "temp/prob_56.rb")][_]]  | [[file:temp/prob_56.c][?]] | [[elisp:(find-file "temp/prob_56.cpp")][_]]   | [[elisp:(find-file "temp/prob_56.nb")][_]]  |          972 | Y         |
  |  55 | How many Lychrel numbers are there below ten-thousand? | [[file:prob_55/prob_55.py][X]]  | [[elisp:(find-file "temp/prob_55.hs")][_]]  | [[elisp:(find-file "temp/prob_55.rb")][_]]  | [[elisp:(find-file "temp/prob_55.c")][_]] | [[elisp:(find-file "temp/prob_55.cpp")][_]]   | [[elisp:(find-file "temp/prob_55.nb")][_]]  |          249 | Y         |
- |  92 | How many starting numbers below ten million will arrive at 89? | [[elisp:(find-file "temp/prob_92.py")][_]]  | [[elisp:(find-file "temp/prob_92.hs")][_]]  | [[elisp:(find-file "temp/prob_92.rb")][_]]  | [[elisp:(find-file "temp/prob_92.c")][_]] | [[elisp:(find-file "temp/prob_92.cpp")][_]]   | [[elisp:(find-file "temp/prob_92.nb")][_]]  |              | N         |
+ |  92 | How many starting numbers below ten million will arrive at 89? | [[file:temp/prob_92.py][?]]  | [[elisp:(find-file "temp/prob_92.hs")][_]]  | [[elisp:(find-file "temp/prob_92.rb")][_]]  | [[elisp:(find-file "temp/prob_92.c")][_]] | [[elisp:(find-file "temp/prob_92.cpp")][_]]   | [[elisp:(find-file "temp/prob_92.nb")][_]]  |              | N         |
+ |  59 | Your task has been made easy, as the encryption key consists of three lower case characters. Using cipher1.txt (right click and 'Save Link/Target As...'), a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text. | [[elisp:(find-file "temp/prob_59.py")][_]]  | [[elisp:(find-file "temp/prob_59.hs")][_]]  | [[elisp:(find-file "temp/prob_59.rb")][_]]  | [[elisp:(find-file "temp/prob_59.c")][_]] | [[elisp:(find-file "temp/prob_59.cpp")][_]]   | [[elisp:(find-file "temp/prob_59.nb")][_]]  |              | N         |
  |-----+----------------------------------------------------+----+----+----+---+-----+----+--------------+-----------|
  | TOT |                                                    | [[elisp:(find-file "temp/prob_TOT.py")][_]]  | [[elisp:(find-file "temp/prob_TOT.hs")][_]]  | [[elisp:(find-file "temp/prob_TOT.rb")][_]]  | [[elisp:(find-file "temp/prob_TOT.c")][_]] | [[elisp:(find-file "temp/prob_TOT.cpp")][_]]   | [[elisp:(find-file "temp/prob_TOT.nb")][_]]  |              | N         |
 
