@@ -1,14 +1,14 @@
 #+OPTIONS: todo:nil author:t toc:nil
 #+AUTHOR: Andrea Crotti
 #+STARTUP: align showall
-# Time-stamp: <09-01-2010, 14:47>
+# Time-stamp: <19-01-2010, 17:59>
 
 This is the [[http://projecteuler.net/index.php%3Fsection%3Dproblems][project Euler problems page]]
 Some auxiliary functions are defined as utilities in files haskell or python.
 
 * TODO Scraping on the web page, analyzing the source code and recreating a table.
 * TODO Automatic loading of elisp functions on load
-* TODO Insert automatic testing of results, with HUnit and more
+* TODO Insert automatic testing of results, with HUnit/nose
 
 * Profiling
 ** Haskell
@@ -142,5 +142,3 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 ** Haskell
    - [[http://www.haskell.org/haskellwiki/Memoization][Memoization]]
    - [[http://www.haskell.org/haskellwiki/Euler_problems][euler problems solutions in haskell]]
-
-** Python

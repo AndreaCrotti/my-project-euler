@@ -1,6 +1,9 @@
+// -*- compile-command: "gcc -o prob_14 prob_14.c" -*-
+
 #include "stdio.h" 
 #include "limits.h" 
-#define N (1000*1000) 
+#define N 1000000
+
 unsigned int memory[N]; 
 long long int collatz_cycle_len(long long int n) { 
     if (n < N && memory[n]) 

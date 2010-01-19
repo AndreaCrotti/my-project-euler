@@ -33,9 +33,9 @@ def gen_dict(max_value):
     return cols
 
 
-def sol2(max_value):
+def prob_14(max_value = 1000*1000):
     memo = dict() 
-    N = 1000*1000 
+    max_value = 1000*1000 
     def len_of(x): 
         if x in memo:
             return memo[x] 
@@ -46,6 +46,8 @@ def sol2(max_value):
         else:
             return 1 + len_of(x / 2) 
 
-    for x in xrange(1, N):
+    for x in xrange(1, max_value):
         memo[x] = len_of(x) 
-    print 'max chain for N:', N, 'is:', max(xrange(1, N),)
+    print 'max chain for max_value:', max_value, 'is:', max(xrange(1, max_value),)
+
+prob_14()

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 #define LIMIT 10000000
 
@@ -25,7 +24,7 @@ int square_digits(int i) {
   while (i > 9) {
     aux = i % 10;
     res += aux * aux;
-    i = (int) floor(i / 10);
+    i /= 10;
   }
   res += i*i;
   return res;

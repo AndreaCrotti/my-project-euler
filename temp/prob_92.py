@@ -7,7 +7,15 @@ def square_digits(i):
     res += i * i
     return res
 
-def prob_92(lim = 10 * 1000 * 1000):
+def is_89(i):
+    while True:
+        i = square_digits(i)
+        if i == 1:
+            return False
+        if i == 89:
+            return True
+
+def prob_92(lim):
     tot = 0
     # checking over a set is much faster
     set1 = set([])
@@ -35,4 +43,13 @@ def prob_92(lim = 10 * 1000 * 1000):
             chain.append(val)
 
     #print set89
+ #   print tot
+
+def prob_92a(lim):
+    from itertools import count
+    tot = 0
+    for i in xrange(1, lim+1):
+        if is_89(i):
+            tot += 1
     print tot
+    
