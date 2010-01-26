@@ -1,1 +1,5 @@
-Table[Binomial[x,y], {x,1,10}, {y,1,10}]
+lim = 100;
+t = Table[Binomial[x,y], {x,1,lim}, {y,1,lim}];
+Length[Select[Flatten[t], # > 1000000 &]]
+
+Out[13]= 4075

@@ -1,14 +1,14 @@
-#+OPTIONS: todo:nil author:t toc:nil
+#+OPTIONS: todo:nil author:t toc:nil num:nil
 #+AUTHOR: Andrea Crotti
 #+STARTUP: align showall
-# Time-stamp: <19-01-2010, 17:59>
+# Time-stamp: <26-01-2010, 16:17>
 
-This is the [[http://projecteuler.net/index.php%3Fsection%3Dproblems][project Euler problems page]]
-Some auxiliary functions are defined as utilities in files haskell or python.
+Euler PROJECT solutions
 
 * TODO Scraping on the web page, analyzing the source code and recreating a table.
 * TODO Automatic loading of elisp functions on load
 * TODO Insert automatic testing of results, with HUnit/nose
+* TODO Use sessions and delete the ugly huge table
 
 * Profiling
 ** Haskell
@@ -18,6 +18,53 @@ Some auxiliary functions are defined as utilities in files haskell or python.
 
 * Utils
   Exportation in haskell is done via "export" keyword.
+
+* [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D1][Problem 1]]
+  If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+  Find the sum of all the multiples of 3 or 5 below 1000.
+  
+#+begin_src python
+# OR is short circuiting, putting n % 3 before n % 5 can already
+# greatly reduce the number of calls
+# Using directly a generator instead of list comprehension is always a good thing
+return sum(n for n in xrange(1000) if (n % 3 == 0 or n % 5 == 0))    
+#+end_src
+
+#+results:
+: 233168
+
+* [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D2][Problem 2]]
+#+begin_src python
+# Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.
+
+# need a dynamic programming approach, using only one two cells array
+ 
+def sum_fib(n):
+    "sum up even fibonacci numbers until max"
+    tot = 0
+    tup = [1, 1]
+    while True:
+        tup[0], tup[1] = sum(tup), tup[0]
+        if tup[0] > n:
+            return tot
+        if tup[0] % 2 == 0:
+            tot += tup[0]
+            
+return sum_fib(4000000)
+
+#+end_src
+
+#+results:
+: 4613732
+
+#+begin_src haskell
+module Main where
+
+import Utils (fib)
+
+main = do
+  print $ head $ filter (\x -> (length $ show $ fib x) == 1000) [0..]
+#+end_src
 
 * Problems
 
@@ -71,6 +118,8 @@ Some auxiliary functions are defined as utilities in files haskell or python.
  |  55 | How many Lychrel numbers are there below ten-thousand? | [[file:prob_55/prob_55.py][X]]  | [[elisp:(find-file "temp/prob_55.hs")][_]]  | [[elisp:(find-file "temp/prob_55.rb")][_]]  | [[elisp:(find-file "temp/prob_55.c")][_]] | [[elisp:(find-file "temp/prob_55.cpp")][_]]   | [[elisp:(find-file "temp/prob_55.nb")][_]]  |          249 | Y         |
  |  92 | How many starting numbers below ten million will arrive at 89? | [[file:temp/prob_92.py][?]]  | [[elisp:(find-file "temp/prob_92.hs")][_]]  | [[elisp:(find-file "temp/prob_92.rb")][_]]  | [[file:prob_92/prob_92.c][X]] | [[elisp:(find-file "temp/prob_92.cpp")][_]]   | [[elisp:(find-file "temp/prob_92.nb")][_]]  |      8581146 | Y         |
  |  59 | Your task has been made easy, as the encryption key consists of three lower case characters. Using cipher1.txt (right click and 'Save Link/Target As...'), a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text. | [[file:temp/prob_59.py][?]]  | [[elisp:(find-file "temp/prob_59.hs")][_]]  | [[elisp:(find-file "temp/prob_59.rb")][_]]  | [[elisp:(find-file "temp/prob_59.c")][_]] | [[elisp:(find-file "temp/prob_59.cpp")][_]]   | [[elisp:(find-file "temp/prob_59.nb")][_]]  |              | N         |
+ |  53 | How many, not necessarily distinct, values of  nCr, for 1  n  100, are greater than one-million? | [[file:temp/prob_53.py][?]]  | [[elisp:(find-file "temp/prob_53.hs")][_]]  | [[elisp:(find-file "temp/prob_53.rb")][_]]  | [[elisp:(find-file "temp/prob_53.c")][_]] | [[elisp:(find-file "temp/prob_53.cpp")][_]]   | [[file:prob_53/prob_53.nb][X]]  |              | N         |
+ |  32 | Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital. | [[elisp:(find-file "temp/prob_32.py")][_]]  | [[elisp:(find-file "temp/prob_32.hs")][_]]  | [[elisp:(find-file "temp/prob_32.rb")][_]]  | [[elisp:(find-file "temp/prob_32.c")][_]] | [[elisp:(find-file "temp/prob_32.cpp")][_]]   | [[elisp:(find-file "temp/prob_32.nb")][_]]  |              | N         |
  |-----+----------------------------------------------------+----+----+----+---+-----+----+--------------+-----------|
  | TOT |                                                    | [[elisp:(find-file "temp/prob_TOT.py")][_]]  | [[elisp:(find-file "temp/prob_TOT.hs")][_]]  | [[elisp:(find-file "temp/prob_TOT.rb")][_]]  | [[elisp:(find-file "temp/prob_TOT.c")][_]] | [[elisp:(find-file "temp/prob_TOT.cpp")][_]]   | [[elisp:(find-file "temp/prob_TOT.nb")][_]]  |              | N         |
 
