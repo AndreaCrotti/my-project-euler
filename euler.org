@@ -1,7 +1,7 @@
 #+OPTIONS: todo:nil author:t toc:nil num:nil
 #+AUTHOR: Andrea Crotti
 #+STARTUP: align showall
-# Time-stamp: <26-01-2010, 16:17>
+# Time-stamp: <27-01-2010, 10:57>
 
 Euler PROJECT solutions
 
@@ -10,19 +10,12 @@ Euler PROJECT solutions
 * TODO Insert automatic testing of results, with HUnit/nose
 * TODO Use sessions and delete the ugly huge table
 
-* Profiling
-** Haskell
-   - $ ghc -prof -auto-all -o Main Main.hs
-   - $ ./Main +RTS -p
-   Will generate the file Main.prof
-
-* Utils
-  Exportation in haskell is done via "export" keyword.
-
 * [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D1][Problem 1]]
+** Description
   If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
   Find the sum of all the multiples of 3 or 5 below 1000.
   
+** Python
 #+begin_src python
 # OR is short circuiting, putting n % 3 before n % 5 can already
 # greatly reduce the number of calls
@@ -34,6 +27,9 @@ return sum(n for n in xrange(1000) if (n % 3 == 0 or n % 5 == 0))
 : 233168
 
 * [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D2][Problem 2]]
+** Description
+
+** Python
 #+begin_src python
 # Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.
 
@@ -57,6 +53,7 @@ return sum_fib(4000000)
 #+results:
 : 4613732
 
+** Haskell
 #+begin_src haskell
 module Main where
 
@@ -65,6 +62,19 @@ import Utils (fib)
 main = do
   print $ head $ filter (\x -> (length $ show $ fib x) == 1000) [0..]
 #+end_src
+
+* [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D79][Problem 79]]
+  A common security method used for online banking is to ask the user
+  for three random characters from a passcode. For example, if the
+  passcode was 531278, they may asked for the 2nd, 3rd, and 5th
+  characters; the expected reply would be: 317.
+
+  The text file, keylog.txt, contains fifty successful login attempts.
+  
+  Given that the three characters are always asked for in order, analyse the file so as to determine the shortest possible secret passcode of unknown length.
+  
+** Python
+   
 
 * Problems
 
@@ -191,3 +201,4 @@ main = do
 ** Haskell
    - [[http://www.haskell.org/haskellwiki/Memoization][Memoization]]
    - [[http://www.haskell.org/haskellwiki/Euler_problems][euler problems solutions in haskell]]
+     

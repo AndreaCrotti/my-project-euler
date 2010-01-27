@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
 """
 Find the four non trivial fractions < 1 where
 which are equivalent to the same fraction removing one digit
