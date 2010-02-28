@@ -1,15 +1,7 @@
 # find the longest possible key from 50 succesfull login
 from itertools import combinations
 # continue to merge substrings until you find something in common
-CODES = set(open("../data/keylog.txt").read().splitlines())
-
-def common_chars(code1, code2):
-    "Returns the number of common letters"
-    # first side
-    if code1 in code2:
-        return code2
-    m = max([0] + [idx for idx in range(len(code1)) if code1[-idx:] == code2[:idx]])
-    return m
+CODES = list(set(open("../data/keylog.txt").read().splitlines()))
 
 def merge(code1, code2):
     def inner(c1, c2):
@@ -20,14 +12,45 @@ def merge(code1, code2):
 
     # gives the the element with minimal length
     return min((inner(code1, code2), inner(code2, code1)), key=len)
-    
-# First try to merge the most common and continue until you merged everything
-# probably it's 
-for c1, c2 in combinations(CODES, 2):
-    cm = common_chars(c1, c2)
-    if cm > 0:
-        print "%s + %s -> %s" % (c1, c2, common_chars(c1, c2))
 
-print merge("162", "162")
+def match(code1, code2, merged):
+    return (len(merged) != len(code1) + len(code2))
 
 # insert some docstrings for testing
+
+def make_table(codes):
+    table = {}
+    for c1, c2 in combinations(codes, 2):
+        merged = merge(c1, c2)
+        if match(c1, c2, merged):
+            table[(c1, c2)] = merge(c1, c2)
+    return table
+
+def gen_tables(table):
+    for k in table.iterkeys():
+        print "on key", k
+        new_keys = set()
+        new_keys.add(table[k])
+        for k2 in table.iterkeys():
+            if (k[0] not in k2) and (k[1] not in k2):
+                print "on key2", k2
+                new_keys.add(table[k2])
+
+        yield(make_table(list(new_keys)))
+
+# this line could be useful somehow
+# couple = min(seq, key=lambda x: len(merge(*x)))
+    
+# cds = CODES[:5]
+# from this table construct a nice representation
+h = ["145", "561", "617"]
+table = make_table(CODES)
+print table
+g = gen_tables(table)
+print "next gen", g.next()
+# print sum(len(x) for x in CODES)
+# print len(gen_iters(CODES))
+
+init_tab = make_table(CODES)
+for next_table in gen_tables(init_tab):
+    
