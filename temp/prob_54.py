@@ -1,57 +1,60 @@
-rep = lambda n, d: [x for x in d.keys() if d[x] == n]
+# we also need to keep track of the suit!!
 
-def str_to_couple(hand):
-    tot = map(lambda x: x[0], hand.split(" "))
-    h1, h2 = tot[:5], tot[5:]
-    
-    def to_dict(hand):
-        d = {}
-        for el in hand:
-            if d.has_key(el):
-                d[el] += 1
+NOPE = 0
+PAIR = 1
+D_PAIR = 2
+TRIS = 3
+FULL = 4
+POKER = 5
+FLUSH = 6
+R_FLUSH = 7
+
+def winner(hand_str):
+    cards = [(to_int(s[0]), s[1]) for s in hand_str.split(" ")]
+    return cmp(Hand(cards[:5]), cards[5:])
+
+s_to_card = {
+    "T" : 10,
+    "J" : 11,
+    "Q" : 12,
+    "K" : 13,
+    "A" : 14
+    }
+
+def to_int(card):
+    try:
+        return int(card)
+    except ValueError:
+        return s_to_card[card]    
+
+class Hand(object):
+    def __init__(self, hand):
+        self.hand = hand
+        self.nums = [h[0] for h in self.hand]
+        self.flushes = [h[1] for h in self.hand]
+        self.short = {}
+        for n in self.nums:
+            if self.short.has_key(n):
+                self.short[n] += 1
             else:
-                d[el] = 1
-        return d
+                self.short[n] = 1
+        # self.values = [self.is_r_flush, self.is_flush, self.is_poker,
+        #                self.is_full, self.is_double_pair, self.is_pair]
 
-    return (to_dict(h1), to_dict(h2))
+    def is_r_flush(self):
+        return self.is_flush(start = 10)
 
+    def is_flush(self, start = None):
+        if len(set(self.flushes)) != 1:
+            return False
+        nums = self.nums[:]
+        nums.sort()
 
-def pairs(hand):
-    "return all couples"
-    return rep(2, hand)
+        if not(start):
+            start = min(nums)
 
-def is_pair(hand):
-    p = pairs(hand)
-    if len(p) == 1:
-        return p[0]
-    return False
-
-def is_double_pair(hand):
-    p = pairs(hand)
-    if len(p) == 2:
-        return p
-    return False
-
-def is_triple(hand):
-    tr = rep(3, hand)
-    if tr:
-        return tr[0]
-    else:
-        return False
-
-def is_poker(hand):
-    pok = rep(4, hand)
-    if pok:
-        return pok[0]
-    else:
-        return False
-
-def is_full(hand):
-    p = is_pair(hand)
-    t = is_triple(hand)
-    if p and t:
-        return (p, t)
+        return nums == range(start, start + len(nums) + 1)
 
 
-
-print str_to_couple("8C TS KC 9H 4S 7D 2S 5D 3S 3C")
+h = "8C TS KC 9H 4S 7D 2S 5D 3S 3C"
+print winner(h)
