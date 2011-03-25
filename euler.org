@@ -1,7 +1,7 @@
 #+OPTIONS: todo:nil author:t toc:nil num:nil
 #+AUTHOR: Andrea Crotti
 #+STARTUP: align showall
-# Time-stamp: <28-02-2010, 13:59>
+# Time-stamp: <25-03-2011, 11:08>
 
 Euler PROJECT solutions
 
@@ -11,11 +11,9 @@ Euler PROJECT solutions
 * TODO Use sessions and delete the ugly huge table
 
 * [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D1][Problem 1]]
-** Description
   If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
   Find the sum of all the multiples of 3 or 5 below 1000.
   
-** Python
 #+begin_src python
 # OR is short circuiting, putting n % 3 before n % 5 can already
 # greatly reduce the number of calls
@@ -27,9 +25,7 @@ return sum(n for n in xrange(1000) if (n % 3 == 0 or n % 5 == 0))
 : 233168
 
 * [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D2][Problem 2]]
-** Description
 
-** Python
 #+begin_src python
 # Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.
 
@@ -53,7 +49,6 @@ return sum_fib(4000000)
 #+results:
 : 4613732
 
-** Haskell
 #+begin_src haskell
 module Main where
 
@@ -73,8 +68,6 @@ main = do
   
   Given that the three characters are always asked for in order, analyse the file so as to determine the shortest possible secret passcode of unknown length.
   
-** Python
-   
 
 * Problems
 
@@ -137,67 +130,6 @@ main = do
 
 #+TBLFM: $3='(check-problem $1 @1)::$4='(check-problem $1 @1)::$5='(check-problem $1 @1)::$6='(check-problem $1 @1)::$7='(check-problem $1 @1)::$8='(check-problem $1 @1)::$10='(if (string-match $9 "") "N" "Y")
 # I can do even better taking the extension form the header of the table
-
-* Functions
-  :PROPERTIES:
-  :ID:       AF173074-38CB-4FD8-96E5-65496820FF75
-  :END:
-  
-#+begin_src emacs-lisp
-(defvar temp-dir "temp/")
-(defvar solved-dir "prob_%s/")
-(defvar prob-file "prob_%s.%s")
-
-(defun check-problem (id ext)
-  (interactive)
-  (setq ext (downcase ext))
-  (cond
-   ((file-exists-p (solved-problem id ext))
-    (format "[[file:%s][X]]" (solved-problem id ext)))
-   ((file-exists-p (temp-problem id ext))
-    (format "[[file:%s][?]]" (temp-problem id ext)))
-   (t
-    ;; Otherwise create a link for a new file
-    (concat "[[elisp:(find-file \"" (temp-problem id ext) "\")][_]]"))))
-
-(defun create-new (msg fname)
-  "creates a new file inserting the text as comment"
-  (progn 
-    (find-file fname)
-    ;; TODO: adding automatically commenting
-    (insert msg)))
-
-(defun temp-problem (id ext)
-  (concat temp-dir
-          (format prob-file id ext)))
-
-(defun solved-problem (id ext)
-  (concat 
-   (format solved-dir id)
-   (format prob-file id ext)))
-
-(defun done ()
-  "This function move the file when it's working"
-  (interactive)
-  (if (not buffer-file-name)
-      (message "your file is not saved, save it before")
-    (let*
-        ((dir (concat "../" (sans-extension (file-name-nondirectory buffer-file-name))))
-         (newfile (concat dir "/" (file-name-nondirectory buffer-file-name))))
-      (if
-          (yes-or-no-p "sure you solved the problem?")
-          (progn
-            (if (not (file-exists-p dir))
-                (progn 
-                  (message "creating directory for this problem")
-                  (make-directory dir)))
-            (rename-file buffer-file-name newfile)
-            (kill-buffer))
-        (message "yes check better your results first")))))
-
-(defun sans-extension (fname)
-  (substring fname 0 (string-match "\\." fname)))
-#+end_src
 
 * Useful documentation
 ** Haskell
