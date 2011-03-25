@@ -1,8 +1,6 @@
 #+OPTIONS: todo:nil author:t toc:nil num:nil
 #+AUTHOR: Andrea Crotti
 #+STARTUP: align showall
-# Time-stamp: <25-03-2011, 11:08>
-
 Euler PROJECT solutions
 
 * TODO Scraping on the web page, analyzing the source code and recreating a table.
@@ -76,7 +74,7 @@ main = do
  |     | <50>                                               | [[elisp:(find-file "temp/prob_.py")][_]]  | [[elisp:(find-file "temp/prob_.hs")][_]]  | [[elisp:(find-file "temp/prob_.rb")][_]]  | [[elisp:(find-file "temp/prob_.c")][_]] | [[elisp:(find-file "temp/prob_.cpp")][_]]   | [[elisp:(find-file "temp/prob_.nb")][_]]  |              | N         |
  |-----+----------------------------------------------------+----+----+----+---+-----+----+--------------+-----------|
  |   1 | Add all the natural numbers below one thousand that are multiples of 3 or 5 | [[file:prob_1/prob_1.py][X]]  | [[file:prob_1/prob_1.hs][X]]  | [[elisp:(find-file "temp/prob_1.rb")][_]]  | [[elisp:(find-file "temp/prob_1.c")][_]] | [[elisp:(find-file "temp/prob_1.cpp")][_]]   | [[elisp:(find-file "temp/prob_1.nb")][_]]  |       233168 | Y         |
- |   2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [[file:prob_2/prob_2.py][X]]  | [[file:prob_2/prob_2.hs][X]]  | [[elisp:(find-file "temp/prob_2.rb")][_]]  | [[elisp:(find-file "temp/prob_2.c")][_]] | [[elisp:(find-file "temp/prob_2.cpp")][_]]   | [[elisp:(find-file "temp/prob_2.nb")][_]]  |      4613732 | Y         |
+ |   2 | Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million. | [[file:prob_2/prob_2.py][X]]  | [[file:prob_2/prob_2.hs][X]]  | [[elisp:(find-file "temp/prob_2.rb")][_]]  | [[file:temp/prob_2.c][?]] | [[elisp:(find-file "temp/prob_2.cpp")][_]]   | [[elisp:(find-file "temp/prob_2.nb")][_]]  |      4613732 | Y         |
  |   3 | What is the largest prime factor of the number 600851475143 ? | [[elisp:(find-file "temp/prob_3.py")][_]]  | [[file:prob_3/prob_3.hs][X]]  | [[elisp:(find-file "temp/prob_3.rb")][_]]  | [[elisp:(find-file "temp/prob_3.c")][_]] | [[elisp:(find-file "temp/prob_3.cpp")][_]]   | [[elisp:(find-file "temp/prob_3.nb")][_]]  |         6857 | Y         |
  |   4 | Find largest palindrome made from the product of two 3-digit numbers | [[file:prob_4/prob_4.py][X]]  | [[file:prob_4/prob_4.hs][X]]  | [[elisp:(find-file "temp/prob_4.rb")][_]]  | [[elisp:(find-file "temp/prob_4.c")][_]] | [[elisp:(find-file "temp/prob_4.cpp")][_]]   | [[elisp:(find-file "temp/prob_4.nb")][_]]  |       906609 | Y         |
  |   5 | smallest divisible by 1..20                        | [[file:prob_5/prob_5.py][X]]  | [[file:prob_5/prob_5.hs][X]]  | [[elisp:(find-file "temp/prob_5.rb")][_]]  | [[elisp:(find-file "temp/prob_5.c")][_]] | [[elisp:(find-file "temp/prob_5.cpp")][_]]   | [[elisp:(find-file "temp/prob_5.nb")][_]]  |    232792560 | Y         |
@@ -124,11 +122,11 @@ main = do
  |  53 | How many, not necessarily distinct, values of  nCr, for 1  n  100, are greater than one-million? | [[file:temp/prob_53.py][?]]  | [[elisp:(find-file "temp/prob_53.hs")][_]]  | [[elisp:(find-file "temp/prob_53.rb")][_]]  | [[file:temp/prob_53.c][?]] | [[elisp:(find-file "temp/prob_53.cpp")][_]]   | [[file:prob_53/prob_53.nb][X]]  |              | N         |
  |  32 | Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital. | [[file:temp/prob_32.py][?]]  | [[elisp:(find-file "temp/prob_32.hs")][_]]  | [[elisp:(find-file "temp/prob_32.rb")][_]]  | [[elisp:(find-file "temp/prob_32.c")][_]] | [[elisp:(find-file "temp/prob_32.cpp")][_]]   | [[elisp:(find-file "temp/prob_32.nb")][_]]  |              | N         |
  |  99 | determine which line number has the greatest numerical value. | [[file:prob_99/prob_99.py][X]]  | [[elisp:(find-file "temp/prob_99.hs")][_]]  | [[elisp:(find-file "temp/prob_99.rb")][_]]  | [[elisp:(find-file "temp/prob_99.c")][_]] | [[elisp:(find-file "temp/prob_99.cpp")][_]]   | [[elisp:(find-file "temp/prob_99.nb")][_]]  |          709 | Y         |
- |  54 | How many hands the player 1 wins?                  | [[elisp:(find-file "temp/prob_54.py")][_]]  | [[elisp:(find-file "temp/prob_54.hs")][_]]  | [[elisp:(find-file "temp/prob_54.rb")][_]]  | [[elisp:(find-file "temp/prob_54.c")][_]] | [[elisp:(find-file "temp/prob_54.cpp")][_]]   | [[elisp:(find-file "temp/prob_54.nb")][_]]  |              | N         |
+ |  54 | How many hands the player 1 wins?                  | [[file:temp/prob_54.py][?]]  | [[elisp:(find-file "temp/prob_54.hs")][_]]  | [[elisp:(find-file "temp/prob_54.rb")][_]]  | [[elisp:(find-file "temp/prob_54.c")][_]] | [[elisp:(find-file "temp/prob_54.cpp")][_]]   | [[elisp:(find-file "temp/prob_54.nb")][_]]  |              | N         |
  |-----+----------------------------------------------------+----+----+----+---+-----+----+--------------+-----------|
  | TOT |                                                    | [[elisp:(find-file "temp/prob_TOT.py")][_]]  | [[elisp:(find-file "temp/prob_TOT.hs")][_]]  | [[elisp:(find-file "temp/prob_TOT.rb")][_]]  | [[elisp:(find-file "temp/prob_TOT.c")][_]] | [[elisp:(find-file "temp/prob_TOT.cpp")][_]]   | [[elisp:(find-file "temp/prob_TOT.nb")][_]]  |              | N         |
 
-#+TBLFM: $3='(check-problem $1 @1)::$4='(check-problem $1 @1)::$5='(check-problem $1 @1)::$6='(check-problem $1 @1)::$7='(check-problem $1 @1)::$8='(check-problem $1 @1)::$10='(if (string-match $9 "") "N" "Y")
+#+TBLFM: $3='(euler-check-problem $1 @1)::$4='(euler-check-problem $1 @1)::$5='(euler-check-problem $1 @1)::$6='(euler-check-problem $1 @1)::$7='(euler-check-problem $1 @1)::$8='(euler-check-problem $1 @1)::$10='(if (string-match $9 "") "N" "Y")
 # I can do even better taking the extension form the header of the table
 
 * Useful documentation
