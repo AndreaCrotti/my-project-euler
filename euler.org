@@ -25,23 +25,23 @@ return sum(n for n in xrange(1000) if (n % 3 == 0 or n % 5 == 0))
 * [[http://projecteuler.net/index.php%3Fsection%3Dproblems&id%3D2][Problem 2]]
 
 #+begin_src python
-# Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.
-
-# need a dynamic programming approach, using only one two cells array
- 
-def sum_fib(n):
-    "sum up even fibonacci numbers until max"
-    tot = 0
-    tup = [1, 1]
-    while True:
-        tup[0], tup[1] = sum(tup), tup[0]
-        if tup[0] > n:
-            return tot
-        if tup[0] % 2 == 0:
-            tot += tup[0]
-            
-return sum_fib(4000000)
-
+  # Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.
+  
+  # need a dynamic programming approach, using only one two cells array
+   
+  def sum_fib(n):
+      "sum up even fibonacci numbers until max"
+      tot = 0
+      tup = [1, 1]
+      while True:
+          tup[0], tup[1] = sum(tup), tup[0]
+          if tup[0] > n:
+              return tot
+          if tup[0] % 2 == 0:
+              tot += tup[0]
+              
+  return sum_fib(4000000)
+  
 #+end_src
 
 #+results:
