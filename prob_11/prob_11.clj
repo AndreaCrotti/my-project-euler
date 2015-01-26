@@ -43,3 +43,10 @@
 (defn quartetts [line]
   (for [i (range (- (count line) 3))]
     (subvec line i (+ i 4))))
+
+(defn to-dict [v]
+  {v (apply + v)})
+
+(defn to-sums [lines]
+  (map to-dict lines))
+
