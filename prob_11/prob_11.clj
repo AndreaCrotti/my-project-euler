@@ -1,4 +1,5 @@
-(ns prob11.prob_11)
+(ns prob11.prob_11
+  (:require [clojure.core.matrix :as mat]))
 
 ;TODO: se uno e' 84 di Anna
 ;; the product of these numbers is 26 × 63 × 78 × 14 = 1788696.
@@ -32,12 +33,23 @@
 (def lines matrix)
 (def size (count matrix))
 
+;; (defn diagonals-co [m]
+;;   (let [rdim (count m)
+;;         cdim (count (first m))]
+;;     (for [x (range (- 1 rdim) cdim)]
+;;       (for [y (range (max 0 (- x)) (min rdim (- rdim x)))]
+;;         (matrix-get m y (+ x y))))))
+
 (def columns
+  "Extract columns"
   (vec
    (map vec
         (for [j (range size)]
           (for [i (range size)]
             (nth (nth matrix i) j))))))
+
+(def diagonals
+  ())
 
 ;TODO: use lazy seq maybe even, and making it greedy?
 (defn quartetts [line]
@@ -49,4 +61,3 @@
 
 (defn to-sums [lines]
   (map to-dict lines))
-

@@ -3,4 +3,6 @@
   :url "https://projecteuler.net/"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.6.0"]
+                 [incanter "1.5.6"]
+                 [net.mikera/core.matrix "0.13.0"]
                  [org.clojure/data.json "0.2.5"]])
