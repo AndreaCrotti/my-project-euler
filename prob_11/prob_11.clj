@@ -8,6 +8,12 @@
 ;; direction (up, down, left, right, or diagonally) in the 20×20 grid?
 
 
+;TODO: make the input and output tuples as JSON to make them language independent
+
+(def simple-matrix [[1 2 3]
+                    [4 5 6]
+                    [7 8 9]])
+
 (def matrix [[ 8  2 22 97 38 15  0 40  0 75  4 5  7 78 52 12 50 77 91   8]
              [49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48  4 56 62  0]
              [81 49 31 73 55 79 14 29 93 71 40 67 53 88 30  3 49 13 36 65]
@@ -30,26 +36,32 @@
              [ 1 70 54 71 83 51 54 69 16 92 33 48 61 43 52  1 89 19 67 48]])
 
 
-(def lines matrix)
-(def size (count matrix))
+(defn lines [matrix] matrix)
+(defn size [matrix] (count matrix))
 
-;; (defn diagonals-co [m]
-;;   (let [rdim (count m)
-;;         cdim (count (first m))]
-;;     (for [x (range (- 1 rdim) cdim)]
-;;       (for [y (range (max 0 (- x)) (min rdim (- rdim x)))]
-;;         (matrix-get m y (+ x y))))))
-
-(def columns
+(defn columns
   "Extract columns"
+  [matrix]
   (vec
    (map vec
         (for [j (range size)]
           (for [i (range size)]
             (nth (nth matrix i) j))))))
 
-(def diagonals
-  ())
+
+(defn extract-diagonal
+  [matrix x y len]
+  (for [i (range len)]
+    (nth (nth matrix (+ i x)) (+ i y))))
+
+;TODO: add some validation
+(defn diagonals
+  "Diagonals of a given size"
+  [matrix min-size]
+  (let [r (range (inc (- (size matrix) min-size)))]
+    (for [row r, column r]
+      (extract-diagonal matrix row column min-size))))
+
 
 ;TODO: use lazy seq maybe even, and making it greedy?
 (defn quartetts [line]
@@ -61,3 +73,8 @@
 
 (defn to-sums [lines]
   (map to-dict lines))
+
+
+(assert (= [1 2 3] (nth (lines simple-matrix) 0)))
+(assert (= [1 5 9] (extract-diagonal simple-matrix 0 0 3)))
+(assert (= [[1 5 9]] (diagonals simple-matrix 3)))
