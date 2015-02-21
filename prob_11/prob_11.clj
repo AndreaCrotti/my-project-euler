@@ -49,23 +49,26 @@
             (nth (nth matrix i) j))))))
 
 
+(defn rotation-matrix
+  "Generate the rotation matrix [[0 0 1][0 1 0][1 0 0]]"
+  [matrix]
+  ())
+
 (defn extract-diagonal
-  [matrix x y len versus]
+  [matrix x y len]
   (for [i (range len)]
     (let [row (nth matrix (+ i x))]
-      (if (= versus 1)
-        (nth row (+ i y))
-        (nth row (- y i))))))
+      (nth row (+ i y)))))
 
 ;TODO: add some validation
 (defn diagonals
   "Diagonals of a given size"
-  [matrix min-size versus]
+  [matrix min-size]
   (let
       [colrange (range (inc (- (size matrix) min-size))),
-       rowrange (if (= versus 1) colrange (range (dec (size matrix)) 0 -1))]
+       rowrange colrange]
     (for [row rowrange, column colrange]
-      (extract-diagonal matrix row column min-size versus))))
+      (extract-diagonal matrix row column min-size))))
 
 ;TODO: use lazy seq maybe even, and making it greedy?
 (defn quartetts [line]
@@ -80,8 +83,8 @@
 
 
 (assert (= [1 2 3] (nth (lines simple-matrix) 0)))
-(assert (= [1 5 9] (extract-diagonal simple-matrix 0 0 3 1)))
-(assert (= [3 5 7] (extract-diagonal simple-matrix 0 2 3 -1)))
+(assert (= [1 5 9] (extract-diagonal simple-matrix 0 0 3)))
+(assert (= [3 5 7] (extract-diagonal simple-matrix 0 2 3)))
 
-(assert (= [[1 5 9]] (diagonals simple-matrix 3 1)))
-(assert (= [[3 5 7]] (diagonals simple-matrix 3 -1)))
+(assert (= [[1 5 9]] (diagonals simple-matrix 3)))
+(assert (= [[3 5 7]] (diagonals simple-matrix 3)))
