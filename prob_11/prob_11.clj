@@ -50,18 +50,22 @@
 
 
 (defn extract-diagonal
-  [matrix x y len]
+  [matrix x y len versus]
   (for [i (range len)]
-    (nth (nth matrix (+ i x)) (+ i y))))
+    (let [row (nth matrix (+ i x))]
+      (if (= versus 1)
+        (nth row (+ i y))
+        (nth row (- y i))))))
 
 ;TODO: add some validation
 (defn diagonals
   "Diagonals of a given size"
-  [matrix min-size]
-  (let [r (range (inc (- (size matrix) min-size)))]
-    (for [row r, column r]
-      (extract-diagonal matrix row column min-size))))
-
+  [matrix min-size versus]
+  (let
+      [colrange (range (inc (- (size matrix) min-size))),
+       rowrange (if (= versus 1) colrange (range (dec (size matrix)) 0 -1))]
+    (for [row rowrange, column colrange]
+      (extract-diagonal matrix row column min-size versus))))
 
 ;TODO: use lazy seq maybe even, and making it greedy?
 (defn quartetts [line]
@@ -76,5 +80,8 @@
 
 
 (assert (= [1 2 3] (nth (lines simple-matrix) 0)))
-(assert (= [1 5 9] (extract-diagonal simple-matrix 0 0 3)))
-(assert (= [[1 5 9]] (diagonals simple-matrix 3)))
+(assert (= [1 5 9] (extract-diagonal simple-matrix 0 0 3 1)))
+(assert (= [3 5 7] (extract-diagonal simple-matrix 0 2 3 -1)))
+
+(assert (= [[1 5 9]] (diagonals simple-matrix 3 1)))
+(assert (= [[3 5 7]] (diagonals simple-matrix 3 -1)))
