@@ -27,31 +27,24 @@
 
 (def prime? (memoize prime*?))
 
-(def primes
-  (filter prime? (drop 2 (range))))
-
 (def double-squares
   (map #(Math/round (* 2 (Math/pow % 2))) (range)))
-
-(contains? #{1 2} 3)
 
 (defn goldbach-gen
   [n]
   (remove nil?
-          (for [np (take-while #(< % n) primes)]
-            (if (contains? (set (take-while #(< % n) double-squares)) (- n np))
-              np))))
+          (for [ds (take-while #(< % n) double-squares)]
+            (let [diff (- n ds)]
+              (when (prime? diff)
+                [ds diff])))))
 
-#_(defn goldbach?
+(defn goldbach?
   [n]
-  (or (prime? n)
-      (pos? (count (goldbach-gen n)))))
+  (empty? (goldbach-gen n)))
 
 (doseq [n (range 3 10000 2)]
-  (if (and (not (prime? n))
-           (empty? (goldbach-gen n)))
-
-    (println n " is a counter example")))
+    (if (goldbach? n)
+      (println n " is a counter example")))
 
 ;; Local Variables:
 ;; compile-command: "lumo -d prob_46.clj"
