@@ -17,15 +17,13 @@
   [a b]
   (zero? (mod b a)))
 
-(defn prime*?
+(defn prime?
   [n]
   (let [possible-divisors (range 2 (inc (Math/round (Math/sqrt n))))
         divs (map #(divides? % n) possible-divisors)]
 
     (or (= n 2)
         (= (set divs) #{false}))))
-
-(def prime? (memoize prime*?))
 
 (def double-squares
   (map #(Math/round (* 2 (Math/pow % 2))) (range)))
