@@ -38,26 +38,34 @@
   [matrix]
   (apply mapv vector matrix))
 
-(defn lines [matrix] matrix)
-(defn size [matrix] (count matrix))
-
 (defn matrix-get
   [matrix x y]
   (nth (nth matrix x) y))
 
 (defn extract-diagonal
-  [matrix x y len]
+  [matrix x y len & {:keys [main] :or {main true}}]
   (for [i (range len)]
-    (matrix-get matrix (+ i x) (+ i y))))
+    (matrix-get matrix
+                (+ x i)
+                (if main
+                  (+ y i)
+                  (- y i)))))
 
 (defn diagonals
   "Diagonals of a given size"
-  [matrix min-size]
-  (let [colrange (range (inc (- (size matrix) min-size))),
-        rowrange colrange]
+  [matrix min-size & {:keys [main] :or {main true}}]
+  (let [main-colrange (range (inc (- (count matrix) min-size)))
+        colrange (if main
+                   main-colrange
+                   (range (dec (count matrix)) (- (dec (count matrix)) min-size) (- 1))),
+        
+        rowrange main-colrange]
     
+    (println colrange
+             rowrange)
+
     (for [row rowrange, column colrange]
-      (extract-diagonal matrix row column min-size))))
+      (extract-diagonal matrix row column min-size :main main))))
 
 (defn quartetts
   [line]
@@ -67,9 +75,10 @@
 (defn all-seqs
   [matrix]
   (map vec
-       (concat (lines matrix)
+       (concat matrix
                (transpose matrix)
-               (diagonals matrix 4))))
+               (diagonals matrix 4)
+               (diagonals matrix 4 :main false))))
 
 (println (apply max
                 (map #(apply * %)
