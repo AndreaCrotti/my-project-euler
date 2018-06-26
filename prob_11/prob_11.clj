@@ -1,14 +1,12 @@
-(ns prob11.prob_11
-  (:require [clojure.core.matrix :as mat]))
+(ns prob-11)
 
-                                        ;TODO: se uno e' 84 di Anna
 ;; the product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 
 ;; What is the greatest product of four adjacent numbers in the same
 ;; direction (up, down, left, right, or diagonally) in the 20×20 grid?
 
 
-                                        ;TODO: make the input and output tuples as JSON to make them language independent
+;;TODO: make the input and output tuples as JSON to make them language independent
 
 (def simple-matrix [[1 2 3]
                     [4 5 6]
@@ -35,25 +33,13 @@
                   [20 73 35 29 78 31 90  1 74 31 49 71 48 86 81 16 23 57  5 54]
                   [ 1 70 54 71 83 51 54 69 16 92 33 48 61 43 52  1 89 19 67 48]])
 
+(defn transpose
+  "Generate the rotation matrix [[0 0 1][0 1 0][1 0 0]]"
+  [matrix]
+  (apply mapv vector matrix))
 
 (defn lines [matrix] matrix)
 (defn size [matrix] (count matrix))
-
-(defn columns
-  "Extract columns"
-  [matrix]
-  (vec
-   (map vec
-        (for [j (range size)]
-          (for [i (range size)]
-            (nth (nth matrix i) j))))))
-
-
-(defn rotation-matrix
-  "Generate the rotation matrix [[0 0 1][0 1 0][1 0 0]]"
-  [matrix]
-  ())
-
 
 (defn matrix-get
   [matrix x y]
@@ -64,32 +50,27 @@
   (for [i (range len)]
     (matrix-get matrix (+ i x) (+ i y))))
 
-                                        ;TODO: add some validation
 (defn diagonals
   "Diagonals of a given size"
   [matrix min-size]
-  (let
-      [colrange (range (inc (- (size matrix) min-size))),
-       rowrange colrange]
+  (let [colrange (range (inc (- (size matrix) min-size))),
+        rowrange colrange]
+    
     (for [row rowrange, column colrange]
       (extract-diagonal matrix row column min-size))))
 
-                                        ;TODO: use lazy seq maybe even, and making it greedy?
-(defn quartetts [line]
+(defn quartetts
+  [line]
   (for [i (range (- (count line) 3))]
     (subvec line i (+ i 4))))
 
-(defn to-dict [v]
-  {v (apply + v)})
+(defn all-seqs
+  [matrix]
+  (map vec
+       (concat (lines matrix)
+               (transpose matrix)
+               (diagonals matrix 4))))
 
-(defn to-sums [lines]
-  (map to-dict lines))
-
-
-(assert (= [1 2 3] (nth (lines simple-matrix) 0)))
-(assert (= [[2 1] [4 3]]) (matrix-multiply [[1 2][3 4]] [[0 1][1 0]]))
-(assert (= [1 5 9] (extract-diagonal simple-matrix 0 0 3)))
-(assert (= [3 5 7] (extract-diagonal simple-matrix 0 2 3)))
-
-(assert (= [[1 5 9]] (diagonals simple-matrix 3)))
-(assert (= [[3 5 7]] (diagonals simple-matrix 3)))
+(println (apply max
+                (map #(apply * %)
+                     (apply concat (map quartetts (all-seqs inputmatrix))))))
